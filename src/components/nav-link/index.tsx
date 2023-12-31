@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-export function NavLink({ href, children, classNames }: { href: string; children: string | React.ReactNode, classNames: string}) {
+export function NavLink({ href, children, classNames }: { href: string; children: string | React.ReactNode, classNames: string }) {
   const router = useRouter();
   const isActive = router.pathname === href;
 

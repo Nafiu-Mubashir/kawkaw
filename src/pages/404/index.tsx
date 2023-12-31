@@ -10,7 +10,7 @@ export default function Error() {
       <div className='flex flex-col lg:flex-row justify-between items-center w-[90%] lg:w-[60%] m-auto mt-20'>
         <img src="/404.png" alt="" className='w-[100%] lg:w-[50%]'/>
         <div>
-          <h3 className='font-bold text-[70px] leading-[5rem]'>404 <span className="text-mine"> ERROR!</span></h3>
+          <h3 className='font-bold text-[70px] leading-[5rem]'>404<span className="text-mine"> ERROR!</span></h3>
           <div className='text-[14px] lg:text-[20px] w-[90%] lg:w-[95%]'>
             Sorry, we can't find the page you are looking for. Please go to <Link href={"/"} className='text-mine'>Home.</Link>
           </div>

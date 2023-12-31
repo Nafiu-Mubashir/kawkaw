@@ -27,7 +27,7 @@ export function Registration() {
               <div>
                 <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">Username</label>
                 <div className="mt-2">
-                  <input id="username" name="username" type="text" autoComplete="email" placeholder='Username' required className="block w-full border py-3 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 ring-purple-500  focus:ring-1 focus:ring-inset focus:ring-purple-500  sm:text-sm sm:leading-6" />
+                  <input id="username" name="username" type="text" autoComplete="email" placeholder='Username' required className="block w-full border py-3 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 ring-mine  focus:ring-1 focus:ring-inset focus:ring-mine  sm:text-sm sm:leading-6" />
                 </div>
               </div>
 
@@ -57,18 +57,18 @@ export function Registration() {
               </div>
 
               <div>
-                <button type="submit" className="flex w-full justify-center rounded-md bg-indigo-600 py-3 px-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+                <button type="submit" className="flex w-full justify-center rounded-md bg-mine py-3 px-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-mine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mine">Sign in</button>
               </div>
             </form>
 
             <p className="mt-10 mb-10 text-center text-sm text-gray-500">
               Not a member?
-              <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"> Loginr now</a>
+              <a href="#" className="font-semibold leading-6 text-mine hover:text-mine"> Loginr now</a>
             </p>
 
             <p className="mt-10 mb-5 text-center text-sm text-gray-500">
               Wanna see how Student, Instructor, or Admin look?
-              <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"> Click here to access Demo Account</a>
+              <a href="#" className="font-semibold leading-6 text-mine hover:text-mine"> Click here to access Demo Account</a>
             </p>
           </div>
         </div>

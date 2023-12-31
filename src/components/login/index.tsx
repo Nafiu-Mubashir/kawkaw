@@ -35,7 +35,7 @@ export function Login() {
                 <div className="flex items-center justify-between">
                   <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">Password</label>
                   <div className="text-sm">
-                    <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+                    <a href="#" className="font-semibold text-hoverMine hover:text-mine">Forgot password?</a>
                   </div>
                 </div>
                 <div className="mt-2">
@@ -44,18 +44,18 @@ export function Login() {
               </div>
 
               <div>
-                <button type="submit" className="flex w-full justify-center rounded-md bg-indigo-600 py-3 px-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+                <button type="submit" className="flex w-full justify-center rounded-md bg-hoverMine py-3 px-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-mine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hoverMine">Sign in</button>
               </div>
             </form>
 
             <p className="mt-10 mb-10 text-center text-sm text-gray-500">
               Not a member?
-              <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"> Register now</a>
+              <a href="#" className="font-semibold leading-6 text-hoverMine hover:text-mine"> Register now</a>
             </p>
 
             <p className="mt-10 mb-5 text-center text-sm text-gray-500">
               Wanna see how Student, Instructor, or Admin look?
-              <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"> Click here to access Demo Account</a>
+              <a href="#" className="font-semibold leading-6 text-hoverMine hover:text-mine"> Click here to access Demo Account</a>
             </p>
           </div>
         </div>

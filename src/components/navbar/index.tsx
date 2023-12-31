@@ -8,7 +8,7 @@ import { Registration } from "../registration";
 import { Search } from "../search";
 import { Sidebar } from "../sidebar";
 
-export const Navabr = () => {
+export const Navabr = ({position}:{position: string}) => {
   const [toggles, setToggles] = useState(false)
   const [toggling, setToggling] = useState(false)
   const openCourse = () => {
@@ -56,7 +56,7 @@ export const Navabr = () => {
   }, []);
 
   return (
-    <nav className={`main-na ${isNavbarWhite ? 'bg-white transition duration-600 delay-75 ease-in transform text-black fixed w-full z-10 top-0' : 'bg-transparent transition duration-500 delay-75 ease-out transform text-white sticky z-10 top-0'}`} ref={navbarRef}>
+    <nav className={`main-na ${isNavbarWhite ? 'bg-white transition duration-600 delay-75 ease-in transform text-black fixed w-full z-10 top-0' : `bg-transparent transition duration-500 delay-75 ease-out transform text-white ${position} w-full z-10 top-0`}`} ref={navbarRef}>
       <div className='bg-[#222222] w-full text-white p-2'>
         <div className='flex justify-between mx-auto w-full lg:w-[80%] px-2 sm:px-6 lg:px-8'>
           <div className='flex justify-between items-center gap-5'>

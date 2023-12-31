@@ -1,5 +1,6 @@
 import { Call, Diamonds, Facebook, Instagram, Location, MessageCircle } from 'iconsax-react'
 
+import Link from 'next/link'
 import React from 'react'
 
 export function Footer() {
@@ -10,10 +11,10 @@ export function Footer() {
       <div className="p-4 lg:p-20">
         <div className="md:flex md:justify-between w-[95%] lg:w-[80%] m-auto">
           <div className="mb-6 md:mb-0">
-            <a href="/" className="flex gap-2 items-center mb-4">
+            <Link className="flex gap-2 items-center mb-4" href={''}>
               <Diamonds color="#FFB606" variant="Linear" size={44} />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">KAWKAW</span>
-            </a>
+            </Link>
             <div className='flex gap-2 items-center mb-4'>
               <Call size="20" color="#ffb606" />
               <p>08039187401</p>
@@ -35,16 +36,16 @@ export function Footer() {
             <h2 className="mb-6 text-sm font-semibold uppercase text-white">Company</h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
               <li className="mb-4">
-                <a href="/about" className="hover:underline hover:text-mine">About</a>
+                <Link href="/Linkbout" className="hover:underline hover:text-mine">About</Link>
               </li>
               <li className='mb-4'>
-                <a href="/blog" className="hover:underline hover:text-mine">Blog</a>
+                <Link href="/blog" className="hover:underline hover:text-mine">Blog</Link>
               </li>
               <li className='mb-4'>
-                <a href="/contact" className="hover:underline hover:text-mine">Contact</a>
+                <Link href="/contact" className="hover:underline hover:text-mine">Contact</Link>
               </li>
               <li className='mb-4'>
-                <a href="/" className="hover:underline hover:text-mine">Become a Teacher</a>
+                <Link className="hover:underline hover:text-mine" href={''}>Become a Teacher</Link>
               </li>
             </ul>
           </div>
@@ -52,16 +53,16 @@ export function Footer() {
             <h2 className="mb-6 text-sm font-semibold uppercase text-white">Links</h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
               <li className="mb-4">
-                <a href="/courses" className="hover:underline hover:text-mine ">Courses</a>
+                <Link href="/courses" className="hover:underline hover:text-mine ">Courses</Link>
               </li>
               <li className='mb-4'>
-                <a href="/events" className="hover:underline hover:text-mine">Events</a>
+                <Link href="/events" className="hover:underline hover:text-mine">Events</Link>
               </li>
               <li className='mb-4'>
-                <a href="/" className="hover:underline hover:text-mine">Gallery</a>
+                <Link className="hover:underline hover:text-mine" href={''}>Gallery</Link>
               </li>
               <li className='mb-4'>
-                <a href="/faqs" className="hover:underline hover:text-mine">FAQs</a>
+                <Link href="/faqs" className="hover:underline hover:text-mine">FAQs</Link>
               </li>
             </ul>
           </div>
@@ -69,10 +70,10 @@ export function Footer() {
             <h2 className="mb-6 text-sm font-semibold uppercase text-white">Support</h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
               <li className="mb-4">
-                <a href="#" className="hover:underline hover:text-mine">Documentation</a>
+                <Link href="#" className="hover:underline hover:text-mine">Documentation</Link>
               </li>
               <li className='mb-4'>
-                <a href="#" className="hover:underline hover:text-mine">Terms Conditions</a>
+                <Link href="#" className="hover:underline hover:text-mine">Terms Conditions</Link>
               </li>
             </ul>
           </div>
@@ -80,10 +81,10 @@ export function Footer() {
             <h2 className="mb-6 text-sm font-semibold uppercase text-white">Recommend</h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
               <li className="mb-4">
-                <a href="#" className="hover:underline hover:text-mine">Online Class</a>
+                <Link href="#" className="hover:underline hover:text-mine">Online Class</Link>
               </li>
               <li className='mb-4'>
-                <a href="#" className="hover:underline hover:text-mine">Physical Class</a>
+                <Link href="#" className="hover:underline hover:text-mine">Physical Class</Link>
               </li>
             </ul>
           </div>
@@ -91,21 +92,21 @@ export function Footer() {
       </div>
       <div className="border-t-2 p-4 lg:p-8">
         <div className="w-[95%] lg:w-[80%] m-auto sm:flex sm:items-center sm:justify-between ">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="/" className="hover:underline">Kawkaw™</a>. All Rights Reserved.
+          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <Link className="hover:underline" href={''}>Kawkaw™</Link>. All Rights Reserved.
           </span>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
-            <a href="#" className="text-gray-500 hover:text-mine">
+            <Link href="#" className="text-gray-500 hover:text-mine">
               Privacy
-            </a>
-            <a href="#" className="text-gray-500 hover:text-mine ms-5">
+            </Link>
+            <Link href="#" className="text-gray-500 hover:text-mine ms-5">
               Terms
-            </a>
-            <a href="#" className="text-gray-500 hover:text-mine ms-5">
+            </Link>
+            <Link href="#" className="text-gray-500 hover:text-mine ms-5">
               Sitemap
-            </a>
-            <a href="#" className="text-gray-500 hover:text-mine ms-5">
+            </Link>
+            <Link href="#" className="text-gray-500 hover:text-mine ms-5">
               Purchase
-            </a>
+            </Link>
           </div>
         </div>
       </div>
