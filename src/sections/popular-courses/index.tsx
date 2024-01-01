@@ -1,10 +1,10 @@
 import "react-multi-carousel/lib/styles.css";
 
-import CoursesCard from '~/components/courses-card'
+import CoursesCard from '~/components/cards/courses-card'
 import CustumizedCarousel from "~/components/carousel";
+import MoreButton from "~/components/more-button";
 import React from 'react'
 import { RootState } from "~/lib/store";
-import ViewMoreButton from "~/components/view-more";
 import { useSelector } from "react-redux";
 
 const PopularCourses = () => {
@@ -12,7 +12,7 @@ const PopularCourses = () => {
 
   const carouselContent = useSelector((state: RootState) => state.course.course);
   console.log(carouselContent);
-  
+
   return (
     <div className='w-[95%] lg:w-[80%] m-auto mb-4 p- lg:p-8 relative'>
       <div className='mb-6'>
@@ -26,7 +26,7 @@ const PopularCourses = () => {
           ))
         }
       </CustumizedCarousel>
-      <ViewMoreButton classes="mt-10 lg:mt-5" to="/courses" />
+      <MoreButton classes="mt-10 lg:mt-5" to="/courses" label="View More" />
 
     </div>
   )

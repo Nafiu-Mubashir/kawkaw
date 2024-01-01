@@ -1,3 +1,4 @@
+import Events from '~/sections/events'
 import HeroSection from '~/sections/hero'
 import { Inter } from 'next/font/google'
 import PopularCourses from '~/sections/popular-courses'
@@ -13,6 +14,7 @@ export default function Home() {
      <PopularCourses />
       <RegisterNow />
       <WhyChooseUs />
+      <Events />
     </main>
   )
 }

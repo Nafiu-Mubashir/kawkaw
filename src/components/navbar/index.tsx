@@ -29,7 +29,7 @@ export const Navabr = ({position}:{position: string}) => {
       if (navbar) {
         const scrollY = window.scrollY;
 
-        console.log(navbar.getBoundingClientRect());
+        // console.log(navbar.getBoundingClientRect());
 
         if (scrollY > 10) {
           setIsNavbarWhite(true);

@@ -9,7 +9,7 @@ export function Footer() {
 
     <footer className="bg-black text-white">
       <div className="p-4 lg:p-20">
-        <div className="md:flex md:justify-between w-[95%] lg:w-[80%] m-auto">
+        <div className="md:flex md:justify-between w-[95%] md:w-full flex-wrap lg:w-[80%] m-auto">
           <div className="mb-6 md:mb-0">
             <Link className="flex gap-2 items-center mb-4" href={''}>
               <Diamonds color="#FFB606" variant="Linear" size={44} />

@@ -1,25 +1,47 @@
+import EventsCard from '~/components/cards/events-card';
 import React from 'react'
+import { RootState } from '~/lib/store';
 import { SinglePageLayout } from '~/layouts/single-page-layout'
 import { Tabs } from '@mantine/core';
+import { useSelector } from 'react-redux';
 
 export default function Events() {
 
+  const events = useSelector((state: RootState) => state.events.events)
   return (
     <div>
-      Events
-      <Tabs defaultValue="first" color='#FFB606' className='w-[80%] m-auto mb-5'>
+      <Tabs defaultValue="happening" color='#FFB606' className='w-[80%] m-auto mb-5 mt-10'>
         <Tabs.List grow justify="center">
-          <Tabs.Tab value="first">First tab</Tabs.Tab>
-          <Tabs.Tab value="second">Second tab</Tabs.Tab>
-          <Tabs.Tab value="third">Third tab</Tabs.Tab>
+          <Tabs.Tab value="happening">Happening</Tabs.Tab>
+          <Tabs.Tab value="upcoming">Upcoming</Tabs.Tab>
+          <Tabs.Tab value="expired">Expired</Tabs.Tab>
         </Tabs.List>
 
-        <Tabs.Panel value="first">Gallery tab content</Tabs.Panel>
-        <Tabs.Panel value="second">Messages tab content</Tabs.Panel>
-        <Tabs.Panel value="third">Settings tab content</Tabs.Panel>
-      </Tabs>
+        <Tabs.Panel value="happening" className='mt-10'>
+          {
+            events.filter((val) => val.category === 'happening').map(({ image, title, date, time, location, category, content, }, index) => (
 
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, est, sunt dicta suscipit repudiandae quam assumenda fuga provident accusantium veritatis quibusdam illo iure alias cupiditate temporibus optio et dolore voluptate?
+              <EventsCard date={date} time={time} title={title} location={location} content={content} image={image} key={index} id={title} />
+            ))
+          }
+        </Tabs.Panel>
+        <Tabs.Panel value="upcoming" className='mt-10'>
+          {
+            events.filter((val) => val.category === 'upcoming').map(({ image, title, date, time, location, category, content, }, index) => (
+
+              <EventsCard date={date} time={time} title={title} location={location} content={content} image={image} key={index} id={title}/>
+            ))
+          }
+        </Tabs.Panel>
+        <Tabs.Panel value="expired" className='mt-10'>
+          {
+            events.filter((val) => val.category === 'expired').map(({ image, title, date, time, location, category, content, }, index) => (
+
+              <EventsCard date={date} time={time} title={title} location={location} content={content} image={image} key={index} id={title}/>
+            ))
+          }
+        </Tabs.Panel>
+      </Tabs>
     </div>
   )
 }
