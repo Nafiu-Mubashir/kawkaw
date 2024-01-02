@@ -12,7 +12,7 @@ export default function Error() {
         <div>
           <h3 className='font-bold text-[70px] leading-[5rem]'>404<span className="text-mine"> ERROR!</span></h3>
           <div className='text-[14px] lg:text-[20px] w-[90%] lg:w-[95%]'>
-            Sorry, we can't find the page you are looking for. Please go to <Link href={"/"} className='text-mine'>Home.</Link>
+           {` Sorry, we can't find the page you are looking for. Please go to ${<Link href={"/"} className='text-mine'>Home.</Link>}`}
           </div>
         </div>
       </div>
