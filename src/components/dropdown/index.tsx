@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 interface DropdownProps {
   title: string;
@@ -27,7 +28,7 @@ export const Dropdown = ({ title, data, open, toggle, color, fill }: DropdownPro
         <div className="py-1" role="none">
           {
             data?.map(({ name, link }, ind) => (
-              <a href={link} className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" id="menu-item-0" key={ind}>{name}</a>
+              <Link href={link} className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" id="menu-item-0" key={ind}>{name}</Link>
             ))
           }
         </div>

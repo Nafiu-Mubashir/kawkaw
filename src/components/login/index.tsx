@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Modal } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
@@ -35,7 +36,7 @@ export function Login() {
                 <div className="flex items-center justify-between">
                   <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">Password</label>
                   <div className="text-sm">
-                    <a href="#" className="font-semibold text-hoverMine hover:text-mine">Forgot password?</a>
+                    <Link href="#" className="font-semibold text-hoverMine hover:text-mine">Forgot password?</Link>
                   </div>
                 </div>
                 <div className="mt-2">
@@ -50,12 +51,12 @@ export function Login() {
 
             <p className="mt-10 mb-10 text-center text-sm text-gray-500">
               Not a member?
-              <a href="#" className="font-semibold leading-6 text-hoverMine hover:text-mine"> Register now</a>
+              <Link href="#" className="font-semibold leading-6 text-hoverMine hover:text-mine"> Register now</Link>
             </p>
 
             <p className="mt-10 mb-5 text-center text-sm text-gray-500">
               Wanna see how Student, Instructor, or Admin look?
-              <a href="#" className="font-semibold leading-6 text-hoverMine hover:text-mine"> Click here to access Demo Account</a>
+              <Link href="#" className="font-semibold leading-6 text-hoverMine hover:text-mine"> Click here to access Demo Account</Link>
             </p>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { Folder, Minus, Profile2User } from 'iconsax-react'
 
+import Image from 'next/image';
 import React from 'react'
 
 interface CardProp {
@@ -13,8 +14,8 @@ const CoursesCard = ({ name, title, price, image }: CardProp) => {
     <div>
       <div className='shadow-md w-full md:w-[350px] lg:w-[350px] overflow-hidden'>
         <div className='relative'>
-          <img src={image} alt="" className='h-[300px] cursor-pointer transition-transform transform hover:-translate-y-1 hover:scale-110 duration-500 ease-in-out' />
-          <img src="/instructor.webp" alt="" className='rounded-full border bg-white p-1 absolute h-[90px] left-[100px] lg:left-[150px] bottom-[-50px]' />
+          <Image width={400} height={300} src={image} alt="" className='h-[300px] cursor-pointer transition-transform transform hover:-translate-y-1 hover:scale-110 duration-500 ease-in-out' />
+          <Image width={200} height={200} src="/instructor.webp" alt="" className='rounded-full w-[90px]  border bg-white p-1 absolute h-[90px] left-[105px]` md:left-[120px] lg:left-[125px] bottom-[-50px]' />
         </div>
         <div className='p-4'>
           <div className='mb-4 mt-5 p-4 text-center'>

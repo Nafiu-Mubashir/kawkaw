@@ -3,27 +3,27 @@ import { ArrowRight2, Book1, BookSaved, Personalcard } from 'iconsax-react'
 import React from 'react'
 
 const CarouselCards = () => {
-  const content:{
+  const content: {
     icon: React.ReactNode,
     iconMobile: React.ReactNode,
     title: string
   }[] = [
-    {
-      icon: <Personalcard size="120" className='' color="#FFB606" />,
-      iconMobile: <Personalcard size="60" className='' color="#FFB606" />,
-      title: "Best Industry Leaders"
-    },
-    {
-      icon: <BookSaved size="120" color="#FFB606" />,
-      iconMobile: <BookSaved size="60" color="#FFB606" />,
-      title: "Best Industry Leaders"
-    },
-    {
-      icon: <Book1 size="120" color="#FFB606" />,
-      iconMobile: <Book1 size="60" color="#FFB606" />,
-      title: "Best Industry Leaders"
-    }
-  ]
+      {
+        icon: <Personalcard size="120" className='' color="#FFB606" />,
+        iconMobile: <Personalcard size="60" className='' color="#FFB606" />,
+        title: "Best Industry Leaders"
+      },
+      {
+        icon: <BookSaved size="120" color="#FFB606" />,
+        iconMobile: <BookSaved size="60" color="#FFB606" />,
+        title: "Best Industry Leaders"
+      },
+      {
+        icon: <Book1 size="120" color="#FFB606" />,
+        iconMobile: <Book1 size="60" color="#FFB606" />,
+        title: "Best Industry Leaders"
+      }
+    ]
   return (
     <div className='flex flex-col md:flex-row lg:flex-row gap-4 justify-between w-[95%] lg:w-[75%] m-auto'>
       {

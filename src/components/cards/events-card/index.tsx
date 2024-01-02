@@ -1,5 +1,6 @@
 import { Location, Timer1 } from 'iconsax-react'
 
+import Image from 'next/image';
 import Link from 'next/link'
 import React from 'react';
 
@@ -36,19 +37,19 @@ const EventsCard = ({ title, content, date, image, location, time, id }: EventsP
           <h3 className='fomt-bold text-[18px] md:text-[20px] lg:text-[30px] hover:text-mine mb-3 lg:mb-4'>{title}</h3>
         </Link>
         <div className='flex gap-3 mb-3 lg:mb-4'>
-          <p className='flex gap-1 items-center'>
+          <div className='flex gap-1 items-center'>
             <Timer1 size="20" color="gray" />
             <p className='text-gray-400'>{time.from} - {time.to}</p>
-          </p>
-          <p className='flex gap-1 items-center'>
+          </div>
+          <div className='flex gap-1 items-center'>
             <Location size="20" color="gray" />
             <p className='text-gray-400'>{location}</p>
-          </p>
+          </div>
         </div>
         <p>{content}</p>
       </div>
       <div>
-        <img src={image} alt="" className='w-full md:w-[300px] lg:w-full' />
+        <Image width={450} height={238} src={image} alt="" className='w-full md:w-[300px] lg:w-full' />
       </div>
     </div>
     </div >

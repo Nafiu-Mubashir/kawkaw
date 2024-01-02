@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 
 import Autoplay from 'embla-carousel-autoplay';
 import { Carousel } from '@mantine/carousel';
-import CarouselCards from '~/layouts/single-page-layout/components/carousel-card';
+import CarouselCards from './component/carousel-cards';
 import { Navabr } from '~/components/navbar';
 
 const HeroSection = () => {
