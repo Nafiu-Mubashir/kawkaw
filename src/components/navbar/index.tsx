@@ -57,8 +57,8 @@ export const Navabr = ({position}:{position: string}) => {
 
   return (
     <nav className={`main-na ${isNavbarWhite ? 'bg-white transition duration-600 delay-75 ease-in transform text-black fixed w-full z-10 top-0' : `bg-transparent transition duration-500 delay-75 ease-out transform text-white ${position} w-full z-10 top-0`}`} ref={navbarRef}>
-      <div className='bg-[#222222] w-full text-white p-2'>
-        <div className='flex justify-between mx-auto w-full lg:w-[80%] px-2 sm:px-6 lg:px-8'>
+      <div className='bg-[#222222] w-full text-white p-2 text-sm'>
+        <div className='flex justify-between mx-auto w-full lg:w-[90%] px-2 sm:px-6 lg:px-8'>
           <div className='flex justify-between items-center gap-5'>
             <p className="hidden md:hidden lg:block">Contact us:</p>
             <p className="flex items-center gap-2">
@@ -104,9 +104,10 @@ export const Navabr = ({position}:{position: string}) => {
                       toggle={toggles} color={`${isNavbarWhite ? "text-black" : "text-white"}`} fill={`${isNavbarWhite ? "black" : "white"}`} />
                   </NavLink>
                   <NavLink href={'/events'} classNames={`${isNavbarWhite ? "text-black" : "text-white"}`}>
-                    <Dropdown title={"Events"} data={[{ name: "All events", link: "/events" }, { name: "Single events", link: "/all-course" }]}
+                    Events
+                    {/* <Dropdown title={"Events"} data={[{ name: "All events", link: "/events" }, { name: "Single events", link: "/all-course" }]}
                       open={openEvent}
-                      toggle={toggling} color={`${isNavbarWhite ? "text-black" : "text-white"}`} fill={`${isNavbarWhite ? "black" : "white"}`} />
+                      toggle={toggling} color={`${isNavbarWhite ? "text-black" : "text-white"}`} fill={`${isNavbarWhite ? "black" : "white"}`} /> */}
                   </NavLink>
                   <NavLink href={'/blog'} classNames={`${isNavbarWhite ? "text-black" : "text-white"}`}>Blog</NavLink>
                   <NavLink href={'/faqs'} classNames={`${isNavbarWhite ? "text-black" : "text-white"}`}>FAQs</NavLink>

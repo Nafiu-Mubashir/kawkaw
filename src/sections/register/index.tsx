@@ -28,7 +28,7 @@ const RegisterNow = () => {
             <div className='bg-white w-[90%] lg:w-[80%] m-auto '>
               <form className="" action="#" method="POST">
                 <div className='bg-mine p-6 rounded-b-[50%] h-[35%] lg:h-[40%]'>
-                  <h3 className='text-white font-bold text-center text-[16px] lg:text-[25px] mt-5 lg:mt-8'>Create your free account now and immediately get access to 100s of online courses.</h3>
+                  <h3 className='text-white font-bold text-center text-[16px] lg:text-[22px] mt-3 lg:mt-4'>Create your free account now and immediately get access to 100s of online courses.</h3>
                 </div>
                 <div className='mt-5 p-4 lg:p-10'>
 

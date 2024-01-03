@@ -9,18 +9,18 @@ const CarouselCards = () => {
     title: string
   }[] = [
       {
-        icon: <Personalcard size="120" className='' color="#FFB606" />,
-        iconMobile: <Personalcard size="60" className='' color="#FFB606" />,
+        icon: <Personalcard size="100" className='' color="#FFB606" />,
+        iconMobile: <Personalcard size="50" className='' color="#FFB606" />,
         title: "Best Industry Leaders"
       },
       {
-        icon: <BookSaved size="120" color="#FFB606" />,
-        iconMobile: <BookSaved size="60" color="#FFB606" />,
+        icon: <BookSaved size="100" color="#FFB606" />,
+        iconMobile: <BookSaved size="50" color="#FFB606" />,
         title: "Best Industry Leaders"
       },
       {
-        icon: <Book1 size="120" color="#FFB606" />,
-        iconMobile: <Book1 size="60" color="#FFB606" />,
+        icon: <Book1 size="100" color="#FFB606" />,
+        iconMobile: <Book1 size="50" color="#FFB606" />,
         title: "Best Industry Leaders"
       }
     ]
