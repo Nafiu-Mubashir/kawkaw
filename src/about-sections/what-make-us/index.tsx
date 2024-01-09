@@ -28,8 +28,8 @@ const WhatMakeUsSpecial = () => {
       </div>
       <div className="flex justify-between flex-col md:flex-row lg:flex-row gap-3 w-full lg:w-[80%] m-auto">
         {
-          content.map(({image, content, title}) => (
-            <div>
+          content.map(({image, content, title}, id) => (
+            <div key={id}>
               <Image src={image} alt={'about'} width={970} height={560} className='mb-4' />
 
              <div className="mb-3">

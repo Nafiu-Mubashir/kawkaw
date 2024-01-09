@@ -18,11 +18,11 @@ export default function Courses() {
   const handleCategoryFilterChange = (event: ChangeEvent<HTMLInputElement>) => {
     const selectedCategory = event.target.value;
     const updatedFilters = event.target.checked
-      ? [...categoryFilter, selectedCategory]
-      : categoryFilter.filter((category: string) => category !== selectedCategory);
+      // ? [...categoryFilter, selectedCategory]
+      // : categoryFilter.filter((category: string) => category !== selectedCategory);
 
-    setCategoryFilter(updatedFilters);
-    filterCourses(updatedFilters, searchQuery, orderBy);
+    // setCategoryFilter(updatedFilters);
+    // filterCourses(updatedFilters, searchQuery, orderBy);
   };
 
   const handleSearchInputChange = (event: ChangeEvent<HTMLInputElement>) => {
