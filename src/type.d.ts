@@ -1,9 +1,14 @@
 export interface CoursesCard {
   course: {
     image: string;
-    name: string;
+    authur: string;
     title: string;
-    price: string;
+    amount: number;
+    category: string;
+    price: 'Free' | 'Paid';
+    discount?: string;
+    description: string;
+    members: number;
   }[]
 }
 
@@ -34,4 +39,18 @@ export interface News {
     name: string;
     date: Date | string;
   }[]
+}
+
+export interface User {
+  username: string;
+  email: string;
+  password: string;
+}
+
+export interface AuthState {
+  user: User | null;
+  isAuthenticated: boolean;
+  loading: boolean;
+  error: string | null;
+  registeredUsers: User[];
 }

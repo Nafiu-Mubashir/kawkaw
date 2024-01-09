@@ -24,7 +24,7 @@ const HeroSection = () => {
         <Carousel.Slide>
           <div
             style={{
-              backgroundImage: `url('${slideOne}')`,
+              background: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${slideOne}')`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPosition: "center"
@@ -47,7 +47,7 @@ const HeroSection = () => {
         <Carousel.Slide>
           <div
             style={{
-              backgroundImage: `url('${slideTwo}')`,
+              background: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${slideTwo}')`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPosition: "center"

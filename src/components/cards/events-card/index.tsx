@@ -29,10 +29,7 @@ const EventsCard = ({ title, content, date, image, location, time, id }: EventsP
         </div>
         <div className='lg:w-[50%] text-[14px]'>
           <Link
-            href={{
-              pathname: '/events/[single_event]',
-              query: {single_event: id}
-            }}
+            href={`/events/${id}`}
           >
           <h3 className='fomt-bold text-[18px] md:text-[20px] lg:text-[25px] hover:text-mine mb-3 lg:mb-4'>{title}</h3>
         </Link>

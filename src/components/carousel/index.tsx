@@ -3,7 +3,7 @@ import CustomButtonGroup from './components/custom-button';
 import CustomDot from './components/custom-dot';
 import React from 'react'
 
-const CustumizedCarousel = ({children, classes}:{children: React.ReactNode, classes: string | undefined}) => {
+const CustumizedCarousel = ({ children, classes, showButton = true}:{children: React.ReactNode, classes: string | undefined, showButton?: boolean}) => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -36,7 +36,7 @@ const CustumizedCarousel = ({children, classes}:{children: React.ReactNode, clas
         centerMode={false}
         className={`w-full ${classes}`} 
         containerClass="container-padding-bottom"
-        customButtonGroup={<CustomButtonGroup />}
+        customButtonGroup={showButton ? <CustomButtonGroup /> : <div></div>}
         dotListClass=""
         focusOnSelect={false}
         itemClass=""

@@ -26,3 +26,22 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+/* .bg-image{
+  background:linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url(https://picsum.photos/id/1043/800/600);
+} */
+
+.about:nth-child(2){
+  color: #4489F3
+}
+
+.about:nth-child(3){
+  color: #FFB606
+}
+
+.about:nth-child(2):hover{
+  border-bottom-color: #4489F3;
+}
+
+.about:nth-child(3):hover{
+  border-bottom-color: #FFB606;
+}

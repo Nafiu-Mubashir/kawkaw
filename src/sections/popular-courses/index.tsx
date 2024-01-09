@@ -1,6 +1,6 @@
 import "react-multi-carousel/lib/styles.css";
 
-import CoursesCard from '~/components/cards/courses-card'
+import CoursesCard from '~/components/cards/courses-card/home-page'
 import CustumizedCarousel from "~/components/carousel";
 import MoreButton from "~/components/more-button";
 import React from 'react'
@@ -11,7 +11,7 @@ const PopularCourses = () => {
 
 
   const carouselContent = useSelector((state: RootState) => state.course.course);
-  console.log(carouselContent);
+  // console.log(carouselContent);
 
   return (
     <div className='w-[95%] lg:w-[90%] m-auto mb-4 p- lg:p-8 relative'>
@@ -21,8 +21,8 @@ const PopularCourses = () => {
       </div>
       <CustumizedCarousel classes={'h-[85vh] md:h-[85vh] lg:h-[70vh]'}>
         {
-          carouselContent.map(({ name, title, price, image, }, ind) => (
-            <CoursesCard name={name} title={title} price={price} image={image} key={ind} />
+          carouselContent.slice(0,6).map(({ authur, title, price, image, }, ind) => (
+            <CoursesCard name={authur} title={title} price={price} image={image} key={ind} />
           ))
         }
       </CustumizedCarousel>

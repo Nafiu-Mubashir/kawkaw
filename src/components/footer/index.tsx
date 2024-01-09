@@ -1,4 +1,4 @@
-import { Call, Diamonds, Facebook, Instagram, Location, MessageCircle } from 'iconsax-react'
+import { Call, Facebook, HuobiToken, Instagram, Location, MessageCircle } from 'iconsax-react'
 
 import Link from 'next/link'
 import React from 'react'
@@ -12,7 +12,7 @@ export function Footer() {
         <div className="md:flex md:justify-between w-[95%] md:w-full flex-wrap lg:w-[80%] m-auto">
           <div className="mb-6 md:mb-0">
             <Link className="flex gap-2 items-center mb-4" href={''}>
-              <Diamonds color="#FFB606" variant="Linear" size={44} />
+              <HuobiToken color="#FFB606" variant="Linear" size={44} />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">KAWKAW</span>
             </Link>
             <div className='flex gap-2 items-center mb-4'>

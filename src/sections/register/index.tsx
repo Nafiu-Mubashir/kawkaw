@@ -5,7 +5,7 @@ const RegisterNow = () => {
 
   return (
     <div style={{
-      backgroundImage: "url('/bg-slide-2.webp')",
+      background: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/bg-slide-2.webp')`,
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover"

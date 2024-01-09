@@ -1,4 +1,4 @@
-import { Call, Diamonds, Message, Profile2User } from "iconsax-react";
+import { Call, HuobiToken, Message, Profile2User } from "iconsax-react";
 import React, { useEffect, useRef, useState } from 'react'
 
 import { Dropdown } from "../dropdown";
@@ -89,7 +89,7 @@ export const Navabr = ({position}:{position: string}) => {
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 gap-1 items-center justify-center sm:items-stretch sm:justify-between">
             <div className="flex flex-1 gap-2 flex-shrink-0 items-center">
-              <Diamonds color="#FFB606" variant="Linear" size={32} />
+              <HuobiToken color="#FFB606" variant="Linear" size={32} />
               {/* <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" /> */}
               <span className="font-bold">KAWKAW</span>
             </div>
@@ -99,7 +99,7 @@ export const Navabr = ({position}:{position: string}) => {
                   <NavLink href={'/'} classNames={`${isNavbarWhite ? "text-black" : "text-white"}`}>Home</NavLink>
                   <NavLink href={'/about'} classNames={`${isNavbarWhite ? "text-black" : "text-white"}`}>About</NavLink>
                   <NavLink href={"/courses"} classNames={`${isNavbarWhite ? "text-black" : "text-white"}`}>
-                    <Dropdown title={"Courses"} data={[{ name: "All courses", link: "/all-course" }, { name: "Single courses", link: "/all-course" }]}
+                    <Dropdown title={"Courses"} data={[{ name: "All courses", link: "/courses" }, { name: "Single courses", link: "/courses" }]}
                       open={openCourse}
                       toggle={toggles} color={`${isNavbarWhite ? "text-black" : "text-white"}`} fill={`${isNavbarWhite ? "black" : "white"}`} />
                   </NavLink>

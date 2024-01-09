@@ -18,7 +18,7 @@ const initialState: Events = {
       },
       location: "NewYork, USA",
       category: "happening",
-      home: "home"
+      home: "home",
     },
     {
       image: '/event3.jpg',
@@ -33,7 +33,7 @@ const initialState: Events = {
         month: "August"
       },
       location: "Berlin, Germany",
-      category: "happening"
+      category: "happening",
     },
     {
       image: '/event4.jpg',
@@ -48,7 +48,7 @@ const initialState: Events = {
         month: "October"
       },
       location: "Venice, Italy",
-      category: "happening"
+      category: "happening",
     },
     {
       image: '/event5.jpg',
@@ -63,7 +63,7 @@ const initialState: Events = {
         month: "October"
       },
       location: "Chicago, US",
-      category: "happening"
+      category: "happening",
     },
     {
       image: '/event2.webp',
@@ -78,7 +78,7 @@ const initialState: Events = {
         month: "December"
       },
       location: "Vancouver, Canada",
-      category: "upcoming"
+      category: "upcoming",
     },
     {
       image: '/event2.webp',
@@ -94,7 +94,7 @@ const initialState: Events = {
       },
       location: "Paris, French",
       category: "expired",
-      home: "home"
+      home: "home",
     },
     {
       image: '/event6.jpg',
@@ -109,7 +109,7 @@ const initialState: Events = {
         month: "September"
       },
       location: "London, UK",
-      category: "expired"
+      category: "expired",
     },
     {
       image: '/event7.jpg',
@@ -124,7 +124,7 @@ const initialState: Events = {
         month: "December"
       },
       location: "Birmingham, UK",
-      category: "expired"
+      category: "expired",
     },
     
   ]

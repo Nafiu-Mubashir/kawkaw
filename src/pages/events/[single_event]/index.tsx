@@ -24,11 +24,11 @@ export const SingleEvent = () => {
           <h3 className='font-bold mb-3'>{single?.title}</h3>
           <div
             style={{
-              backgroundImage: `url(${image})`,
-              backgroundRepeat: 'no-repeat',
+              background: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('${image}') no-repeat`,
+              // backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
             }}
-            className='h-[50vh] w-full p-3'
+            className='h-[50vh] w-full p-3 '
           >
             <div className='w-[70%] m-auto mt-[6rem] lg:mt-32'>
               <Countdown />
@@ -37,7 +37,7 @@ export const SingleEvent = () => {
 
           <div className='flex flex-col lg:flex-row justify-between mt-10'>
             <div className='w-full lg:w-[50%]'>
-              <h3 className='font-bold mb-4'>EVENT DESCRIPTION</h3>
+              <h3 className='mb-4 font-bold'>EVENT DESCRIPTION</h3>
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
                 typesetting, remaining essentially unchanged.
@@ -45,8 +45,8 @@ export const SingleEvent = () => {
 
 
               <h3 className='font-bold mb-4 mt-5'>EVENT CONTENT</h3>
-              <ul>
-                <li>Over 37 lectures and 55.5 hours of content!</li>
+              <ul className='ml-4 list-disc mb-4 marker:text-mine text-[14px] space-y-2'>
+                <li className=''>Over 37 lectures and 55.5 hours of content!</li>
                 <li>LIVE PROJECT End to End Software Testing Training Included.</li>
                 <li>Learn Software Testing and Automation basics from a professional trainer from your own desk.</li>
                 <li>Information packed practical training starting from basics to advanced testing techniques.</li>
