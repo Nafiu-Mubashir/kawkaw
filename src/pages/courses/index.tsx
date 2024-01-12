@@ -1,121 +1,181 @@
-import { Element3, Firstline, Task } from 'iconsax-react';
-import React, { ChangeEvent, useState } from 'react'
+import { Category, Element3, Firstline, Task } from 'iconsax-react';
+import React, { ChangeEvent, useEffect, useState } from 'react'
 
 import CourseCard from '~/components/cards/courses-card/courses-page'
+import CoursesCard from '~/components/cards/courses-card/home-page';
 import { RootState } from '~/lib/store';
 import { SinglePageLayout } from '~/layouts/single-page-layout'
 import { useSelector } from 'react-redux';
 
+interface FilterOptions {
+  categories: { name: string; count: number }[];
+  prices: { name: string; count: number }[];
+  authur: { name: string; count: number }[]
+}
+
 export default function Courses() {
   const courses = useSelector((state: RootState) => state.course.course);
-  // console.log(courses);
-  
-  const [filteredCourses, setFilteredCourses] = useState(courses);
-  const [categoryFilter, setCategoryFilter] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [orderBy, setOrderBy] = useState<'alphabetical' | 'members'>('alphabetical');
+  const [grid, setGrid] = useState(false);
+  const displayGrid = () => {
+    setGrid(true);
+  }
+  const displayRow = () => {
+    setGrid(false);
+  }
 
-  const handleCategoryFilterChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const selectedCategory = event.target.value;
-    const updatedFilters = event.target.checked
-      // ? [...categoryFilter, selectedCategory]
-      // : categoryFilter.filter((category: string) => category !== selectedCategory);
 
-    // setCategoryFilter(updatedFilters);
-    // filterCourses(updatedFilters, searchQuery, orderBy);
-  };
+  const [filterOptions, setFilterOptions] = useState<FilterOptions>({
+    categories: [],
+    prices: [],
+    authur: []
+  });
 
-  const handleSearchInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
-    filterCourses(categoryFilter, event.target.value, orderBy);
-  };
+  useEffect(() => {
+    const categoryCounts: Record<string, number> = {};
+    const priceCounts: Record<string, number> = {};
+    const authorsCounts: Record<string, number> = {};
 
-  const handleOrderByChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setOrderBy(event.target.value as 'alphabetical' | 'members');
-    filterCourses(categoryFilter, searchQuery, event.target.value as 'alphabetical' | 'members');
-  };
-  
-  const filterCourses = (category: string, search: string, order: 'alphabetical' | 'members') => {
-    let filtered = courses;
+    courses.forEach(course => {
+      // Count categories
+      const category = course.category;
+      categoryCounts[category] = (categoryCounts[category] || 0) + 1;
 
-    if (category.length > 0) {
-      filtered = filtered.filter(course => category.includes(course.category));
-    }
+      // Count prices
+      const price = course.price;
+      priceCounts[price] = (priceCounts[price] || 0) + 1;
 
-    if (search) {
-      const lowerCaseSearch = search.toLowerCase();
-      filtered = filtered.filter(
-        course =>
-          course.title.toLowerCase().includes(lowerCaseSearch) ||
-          course.authur.toLowerCase().includes(lowerCaseSearch) ||
-          course.description.toLowerCase().includes(lowerCaseSearch)
-      );
-    }
+      const authur = course.authur;
+      authorsCounts[authur] = (authorsCounts[authur] || 0) + 1;
+    });
 
-    if (order === 'alphabetical') {
-      filtered.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (order === 'members') {
-      filtered.sort((a, b) => a.members - b.members);
-    }
+    // Convert category counts to array
+    const categoryOptions = Object.keys(categoryCounts).map(name => ({
+      name,
+      count: categoryCounts[name],
+    }));
 
-    setFilteredCourses([...filtered]);
-  };
-  const uniqueCategories = Array.from(new Set(courses.map(course => course.category)));
-  console.log(uniqueCategories);
-  
+    // Convert price counts to array
+    const priceOptions = Object.keys(priceCounts).map(name => ({
+      name,
+      count: priceCounts[name],
+    }));
+
+    const authorOptions = Object.keys(authorsCounts).map(name => ({
+      name,
+      count: authorsCounts[name]
+    }))
+
+    setFilterOptions({ categories: categoryOptions, prices: priceOptions, authur: authorOptions });
+  }, [courses]);
+
+  // const uniqueCategories = Array.from(new Set(courses.map(course => course.category)));
+  // console.log(uniqueCategories);
+
   return (
     <div>
-      <div className='grid grid-row md:grid-cols-4 lg:grid-cols-4 w-full md:w-[95%] lg:w-[80%] m-auto'>
-        <div className='col-span-3 p-3'>
+      <div className='grid grid-row md:grid-row lg:grid-cols-4 gap-3 mt-5 w-full md:w-[95%] lg:w-[80%] m-auto p-2'>
+        <div className='col-span-3'>
           <div className='p-2 bg-gray-100 mb-4 flex justify-between items-center'>
             <div className='flex gap-4 items-center'>
               <div className='flex gap-2'>
-                <Element3 size="24" color="gray" variant='Bold' />
-                <Task size="24" color="gray" variant='Bold' />
+                <Element3 size="24" color={grid ? "orange" : "gray"} variant='Bold' onClick={displayGrid} />
+                <Task size="24" color={!grid ? "orange" : "gray"} variant='Bold' onClick={displayRow} />
                 {/* <Firstline size="32" color="gray" /> */}
               </div>
               <p className='hidden lg:block'>Showing 1-12 of 19 results</p>
             </div>
 
             <div className='flex justify-between flex-wrap md:flex-nowrap lg:flex-nowrap gap-4'>
-              <select id="countries" value={orderBy} onChange={handleOrderByChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-mine focus:border-mine block lg:w-full p-2">
+              <select id="countries" value={''} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-mine focus:border-mine block lg:w-full p-2">
                 <option selected disabled>Newly Published</option>
                 <option value="alphabetical">Alphabetical</option>
                 <option value="members">Number of Members</option>
               </select>
 
               <div className="relative w-full">
-                <input type="text" id="voice-search" value={searchQuery} onChange={handleSearchInputChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-mine focus:border-mine block w-full ps-2 p-2" placeholder="Search our course" required />
-                  <button type="button" className="absolute inset-y-0 end-0 flex items-center text-gray-300 mt-1">
+                <input type="text" id="voice-search" value={''} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-mine focus:border-mine block w-full ps-2 p-2" placeholder="Search our course" required />
+                <button type="button" className="absolute inset-y-0 end-0 flex items-center text-gray-300 mt-1">
                   <svg className="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                   </svg>
-                  </button>
+                </button>
               </div>
             </div>
           </div>
-          {
-            filteredCourses.map(({ authur, title, price, image, description, members }, ind) => (
-              <CourseCard authur={authur} title={title} price={price} image={image} description={description} key={ind} members={members} />
+          {grid === false ?
+            courses.map(({ authur, title, price, image, description, members, amount }, ind) => (
+              <CourseCard authur={authur} title={title} price={price} image={image} description={description} key={ind} members={members} amount={amount} />
             ))
+
+            :
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {
+                courses.map(({ authur, title, price, image, members, amount }, ind) => (
+                  <CoursesCard authur={authur} title={title} price={price} image={image} key={ind} members={members} classes='lg:w-[250px]' amount={amount} />
+                ))}
+            </div>
+
           }
         </div>
-        <div className='border p-2'>
-          <div>
-            <h3 className='p-2 font-bold border-b-4 border-mine'>Categories</h3>
-
+        <div className='border col-span-3 lg:col-span-1 p-3 w-full'>
+          <div className='mb-3'>
+            <h3 className='p-2 font-bold mb-3'>Categories</h3>
             <label>
-              {uniqueCategories.map(category => (
-                <div key={category}>
-                  <label>
+              {filterOptions.categories.sort((a: { name: string; }, b: { name: string; }) => a.name.localeCompare(b.name)).map(({ name, count }) => (
+                <div key={name} className='flex justify-between'>
+                  <label className='font-medium text-gray-900 capitalize flex gap-2 items-center mb-2'>
                     <input
                       type="checkbox"
-                      value={category}
-                      checked={categoryFilter.includes(category)}
-                      onChange={handleCategoryFilterChange}
+                      value={name}
+                      // checked={}
+                      // onChange={handleCategoryFilterChange}
+                      className='w-4 h-4 text-white border-gray-100'
                     />
-                    {category}
+                    {name}
                   </label>
+                  <p>{count}</p>
+                </div>
+              ))}
+            </label>
+          </div>
+
+          <div className='mb-3'>
+            <h3 className='p-2 font-bold mb-3'>Authur</h3>
+            <label>
+              {filterOptions.authur.map(({ name, count }) => (
+                <div key={name} className='flex justify-between'>
+                  <label className='font-medium text-gray-900 capitalize flex gap-2 items-center mb-2'>
+                    <input
+                      type="checkbox"
+                      value={name}
+                      // checked={}
+                      // onChange={handleCategoryFilterChange}
+                      className='w-4 h-4 text-white border-gray-100'
+                    />
+                    {name}
+                  </label>
+                  <p>{count}</p>
+                </div>
+              ))}
+            </label>
+          </div>
+
+          <div className='mb-3'>
+            <h3 className='p-2 font-bold mb-3'>Price</h3>
+            <label>
+              {filterOptions.prices.map(({ name, count }) => (
+                <div key={name} className='flex justify-between'>
+                  <label className='font-medium text-gray-900 capitalize flex gap-2 items-center mb-2'>
+                    <input
+                      type="checkbox"
+                      value={name}
+                      // checked={}
+                      // onChange={handleCategoryFilterChange}
+                      className='w-4 h-4 text-white border-gray-100'
+                    />
+                    {name}
+                  </label>
+                  <p>{count}</p>
                 </div>
               ))}
             </label>

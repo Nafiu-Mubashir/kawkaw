@@ -13,9 +13,12 @@ export function SinglePageLayout({ image, children }: { image?: string, children
   return (
     <div>
       <div style={{
-        background: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('${image ?? fallBackImg}')`
+        background: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('${image ?? fallBackImg}')`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
       }}
-        className='h-[35vh] bg-cover bg-center bg-black opacity-[5]'
+        className='h-[35vh] bg-black opacity-[5]'
       >
         <Navabr position='sticky' />
         <div className='p-5 lg:mt-10'>

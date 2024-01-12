@@ -10,11 +10,12 @@ interface CardProp {
   image: string,
   description: string;
   members: number;
+  amount: number;
 }
 
-const CourseCard = ({ authur, title, price, image, description, members }: CardProp) => {
+const CourseCard = ({ authur, title, price, image, description, members, amount }: CardProp) => {
   return (
-    <div className='flex flex-col lg:flex-row items-center border-b p-3 gap-4 mb-3'>
+    <div className='flex flex-col md:flex-row lg:flex-row items-center border-b p-3 gap-4 mb-3'>
       <div className='w-[400px'>
         <Image width={400} height={300} src={image} alt="" className='w-[400px] h-[202.5px] cursor-pointer transition-transform transform hover:-translate-y-1 hover:scale-110 duration-500 ease-in-out' />
       </div>
@@ -38,7 +39,13 @@ const CourseCard = ({ authur, title, price, image, description, members }: CardP
               </p>
             </div>
             <p className={`${price === 'Free' ? 'text-green-600' : 'text-red-600'} font-bold`}>
-              {price}
+              {
+                price === 'Paid'
+                  ?
+                 <span>{`$${amount}.00`}</span>
+                  :
+                  <span>{price}</span>
+              }
             </p>
           </div>
         </div>

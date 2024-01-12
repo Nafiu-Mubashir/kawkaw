@@ -54,3 +54,11 @@ export interface AuthState {
   error: string | null;
   registeredUsers: User[];
 }
+
+export interface Faqs {
+ faqs:{
+   title: string;
+   content: string | null;
+   header: "Purchases & Refunds" | "Making Courses";
+ }[]
+}

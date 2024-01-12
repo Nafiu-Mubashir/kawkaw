@@ -62,14 +62,14 @@ export function Registration() {
               </div>
             </form>
 
-            <p className="mt-10 mb-10 text-center text-sm text-gray-500">
+            <p className="mt-4 mb-5 text-center text-sm text-gray-500">
               Not a member?
-              <Link href="#" className="font-semibold leading-6 text-mine hover:text-mine"> Loginr now</Link>
+              <Link href="#" className="font-semibold leading-4 text-mine hover:text-mine"> Login now</Link>
             </p>
 
-            <p className="mt-10 mb-5 text-center text-sm text-gray-500">
+            <p className="mt-5 mb-5 text-center text-sm text-gray-500">
               Wanna see how Student, Instructor, or Admin look?
-              <Link href="#" className="font-semibold leading-6 text-mine hover:text-mine"> Click here to access Demo Account</Link>
+              <Link href="#" className="font-semibold leading-4 text-mine hover:text-mine"> Click here to access Demo Account</Link>
             </p>
           </div>
         </div>

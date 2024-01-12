@@ -21,8 +21,8 @@ const PopularCourses = () => {
       </div>
       <CustumizedCarousel classes={'h-[85vh] md:h-[85vh] lg:h-[70vh]'}>
         {
-          carouselContent.slice(0,6).map(({ authur, title, price, image, }, ind) => (
-            <CoursesCard name={authur} title={title} price={price} image={image} key={ind} />
+          carouselContent.slice(0, 6).map(({ authur, title, price, image, members, amount }, ind) => (
+            <CoursesCard authur={authur} title={title} price={price} image={image} key={ind} classes={""} members={members} amount={amount} />
           ))
         }
       </CustumizedCarousel>

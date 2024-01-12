@@ -45,7 +45,7 @@ export function Login() {
               </div>
 
               <div>
-                <button type="submit" className="flex w-full justify-center rounded-md bg-hoverMine py-3 px-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-mine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hoverMine">Sign in</button>
+                <button type="submit" className="flex w-full justify-center rounded-md bg-hoverMine py-3 px-3 text-sm font-semibold leading-6 text-white shadow-sm bg-mine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hoverMine">Sign in</button>
               </div>
             </form>
 

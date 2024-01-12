@@ -45,3 +45,7 @@ body {
 .about:nth-child(3):hover{
   border-bottom-color: #FFB606;
 }
+
+.label:focus{
+  color: #FFB606
+}
