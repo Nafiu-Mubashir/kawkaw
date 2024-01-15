@@ -15,15 +15,30 @@ interface FilterOptions {
 
 export default function Courses() {
   const courses = useSelector((state: RootState) => state.course.course);
-  const [grid, setGrid] = useState(false);
+  // const [grid, setGrid] = useState(false);
+  const [grid, setGrid] = useState<boolean>(() => {
+    if (typeof localStorage !== 'undefined') {
+      const showBanner = localStorage.getItem('showBanner');
+      // If showBanner is null/undefined, fallback to true
+      return showBanner ? JSON.parse(showBanner) : true;
+    } else {
+      // Handle the case where localStorage is not available (e.g., server-side rendering)
+      return true;
+    }
+  });
+  
+  useEffect(() => {
+    localStorage.setItem('showBanner', JSON.stringify(grid));
+  }, [grid]);
+  
   const displayGrid = () => {
     setGrid(true);
-  }
+  };
+  
   const displayRow = () => {
     setGrid(false);
-  }
-
-
+  };
+  
   const [filterOptions, setFilterOptions] = useState<FilterOptions>({
     categories: [],
     prices: [],

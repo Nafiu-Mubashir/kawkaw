@@ -1,5 +1,5 @@
 import { Accordion } from '@mantine/core';
-import Form from '~/components/form';
+import CustomForm from '~/components/form';
 import Link from 'next/link';
 import React from 'react'
 import { RootState } from '~/lib/store';
@@ -87,7 +87,7 @@ const FAQs = () => {
             </div>
             <div className="col-span-3 md:col-span-2 lg:col-span-2 bg-[#3FBB8E] p-8 lg:rounded-r-lg">
               <h3 className='font-bold mb-3 text-[18px] text-white'>{`Didn't find the answer?`}</h3>
-              <Form classes={'lg:w-full'} btn={''} />
+              <CustomForm classes={'lg:w-full'} btn={''} />
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Form = ({ classes, btn }: { classes: string; btn: string }) => {
+const CustomForm = ({ classes, btn }: { classes: string; btn: string }) => {
   return (
     <div>
       <form className={`"w-full lg:w-[60%] ${classes} mx-auto"`}>
@@ -23,4 +23,4 @@ const Form = ({ classes, btn }: { classes: string; btn: string }) => {
   )
 }
 
-export default Form
+export default CustomForm

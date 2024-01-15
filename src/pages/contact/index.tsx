@@ -1,7 +1,7 @@
 import { Location, Profile, Timer1 } from 'iconsax-react'
 
+import CustomForm from '~/components/form'
 import CustumizedCarousel from '~/components/carousel'
-import Form from '~/components/form'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -57,7 +57,7 @@ const Contact = () => {
       <div className='mb-4 p-3'>
         <h3 className='font-bold text-center text-[18px] lg:w-[40%] m-auto mb-3'>Fill the form below so we can get to know you and your needs better.</h3>
         <div>
-          <Form classes={'m-auto '} btn={'block m-auto '} />
+          <CustomForm classes={'m-auto '} btn={'block m-auto '} />
         </div>
       </div>
 

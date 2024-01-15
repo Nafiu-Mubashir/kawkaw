@@ -1,9 +1,10 @@
-import Events from '~/sections/events'
-import HeroSection from '~/sections/hero'
+import Events from '~/sections/home-section/events'
+import HeroSection from '~/sections/home-section/hero'
 import { Inter } from 'next/font/google'
-import PopularCourses from '~/sections/popular-courses'
-import RegisterNow from '~/sections/register'
-import WhyChooseUs from '~/sections/why'
+import LatestNews from '~/sections/home-section/news'
+import PopularCourses from '~/sections/home-section/popular-courses'
+import RegisterNow from '~/sections/home-section/register'
+import WhyChooseUs from '~/sections/home-section/why'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,6 +16,7 @@ export default function Home() {
       <RegisterNow />
       <WhyChooseUs />
       <Events />
+      <LatestNews />
     </main>
   )
 }

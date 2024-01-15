@@ -2,8 +2,8 @@ import { Airdrop, Cup, KeyboardOpen, WifiSquare } from 'iconsax-react'
 import React, { useEffect, useState } from 'react'
 
 import { SinglePageLayout } from '~/layouts/single-page-layout'
-import Team from '~/about-sections/team'
-import WhyChooseUs from '~/about-sections/what-make-us'
+import Team from '~/sections/about-sections/team'
+import WhyChooseUs from '~/sections/home-section/why'
 
 const About = () => {
   const content = [

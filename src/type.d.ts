@@ -36,8 +36,14 @@ export interface News {
   news: {
     title: string;
     image: string;
-    name: string;
+    author: string;
+    authorImg?: string;
+    authorTitle?: string;
+    authurCont?: string;
     date: Date | string;
+    category?: string;
+    comment?: number;
+    content?: string;
   }[]
 }
 
@@ -61,4 +67,11 @@ export interface Faqs {
    content: string | null;
    header: "Purchases & Refunds" | "Making Courses";
  }[]
+}
+
+interface FormValues {
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword?: string
 }

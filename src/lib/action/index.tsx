@@ -3,36 +3,33 @@
 import { clearRegisteredUsers, loginFail, loginSuccess, logout, registerFail, registerSuccess } from '../reducers/authSlice';
 
 import { AppThunk } from '../store';
+import { FormValues } from '~/type';
 
-interface UserData {
-  username: string;
-  password: string;
-}
-
-export const register = (userData: UserData): AppThunk => (dispatch, getState) => {
+export const register = (userData: FormValues): AppThunk => (dispatch, getState) => {
+  const users = getState().auth.registeredUsers;
   // Simulate API call
   // Replace this with an actual API call in a real application
-  const registeredUsers = getState().auth.registeredUsers;
 
-  if (registeredUsers.some((user) => user.username === userData.username)) {
-    dispatch(registerFail('Username already exists'));
+  if (users.some((user) => user.email === userData.email)) {
+    dispatch(registerFail('user already exists'));
   } else {
     dispatch(registerSuccess({
       username: userData.username,
-      email: '',
-      password: ''
+      email: userData.email,
+      password: userData.password,
     }));
   }
 };
 
-export const login = (userData: UserData): AppThunk => (dispatch) => {
+export const LoginAction = (userData: FormValues): AppThunk => (dispatch, getState) => {
   // Simulate API call
   // Replace this with an actual API call in a real application
-  if (userData.username === 'user' && userData.password === 'password') {
+  const users = getState().auth.registeredUsers;
+  if (users.some((user) => user.email === userData.email && user.password === userData.password)) {
     dispatch(loginSuccess({
-      username: 'user',
-      email: '',
-      password: ''
+      email: userData.email,
+      password: '',
+      username: userData.username
     }));
   } else {
     dispatch(loginFail('Login failed'));
