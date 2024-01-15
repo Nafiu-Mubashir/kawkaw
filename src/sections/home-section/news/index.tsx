@@ -25,8 +25,8 @@ const LatestNews = () => {
         </div>
         <CustumizedCarousel classes={'h-[40vh] md:h-[85vh] lg:h-[50vh]'}>
           {
-            NEWS.map(({author, image,title}) => (
-              <div className='w-[122.5px] lg:w-[350px]'>
+            NEWS.map(({author, image,title}, id) => (
+              <div className='w-[122.5px] lg:w-[350px]' key={id}>
                 <div style={{ backgroundImage: `url(${image})` }} className='w-[122.5px] lg:w-[350px] h-[70.65px] lg:h-[280px] bg-cover bg-no-repeat bg-center'>
 
                 </div>
