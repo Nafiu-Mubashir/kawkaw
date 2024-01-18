@@ -26,19 +26,19 @@ export default function Courses() {
       return true;
     }
   });
-  
+
   useEffect(() => {
     localStorage.setItem('showBanner', JSON.stringify(grid));
   }, [grid]);
-  
+
   const displayGrid = () => {
     setGrid(true);
   };
-  
+
   const displayRow = () => {
     setGrid(false);
   };
-  
+
   const [filterOptions, setFilterOptions] = useState<FilterOptions>({
     categories: [],
     prices: [],
@@ -88,13 +88,13 @@ export default function Courses() {
 
   return (
     <div>
-      <div className='grid grid-row md:grid-row lg:grid-cols-4 gap-3 mt-5 w-full md:w-[95%] lg:w-[80%] m-auto p-2'>
+      <div className='grid grid-row md:grid-row lg:grid-cols-4 gap-3 mt-5 w-full md:w-[95%] lg:w-[80%] m-auto p-2 overflow-hidden'>
         <div className='col-span-3'>
           <div className='p-2 bg-gray-100 mb-4 flex justify-between items-center'>
             <div className='flex gap-4 items-center'>
               <div className='flex gap-2'>
-                <Element3 size="24" color={grid ? "orange" : "gray"} variant='Bold' onClick={displayGrid} />
-                <Task size="24" color={!grid ? "orange" : "gray"} variant='Bold' onClick={displayRow} />
+                <Element3 size="24" color={grid ? "orange" : "gray"} variant='Bold' onClick={displayGrid} className='hover:cursor-pointer' />
+                <Task size="24" color={!grid ? "orange" : "gray"} variant='Bold' onClick={displayRow}  className='hover:cursor-pointer'/>
                 {/* <Firstline size="32" color="gray" /> */}
               </div>
               <p className='hidden lg:block'>Showing 1-12 of 19 results</p>
@@ -117,7 +117,8 @@ export default function Courses() {
               </div>
             </div>
           </div>
-          {grid === false ?
+          {
+          grid === false ?
             courses.map(({ authur, title, price, image, description, members, amount }, ind) => (
               <CourseCard authur={authur} title={title} price={price} image={image} description={description} key={ind} members={members} amount={amount} />
             ))
@@ -126,7 +127,7 @@ export default function Courses() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {
                 courses.map(({ authur, title, price, image, members, amount }, ind) => (
-                  <CoursesCard authur={authur} title={title} price={price} image={image} key={ind} members={members} classes='lg:w-[250px]' amount={amount} />
+                  <CoursesCard authur={authur} title={title} price={price} image={image} key={ind} members={members} classes='lg:w-[250px' amount={amount} />
                 ))}
             </div>
 

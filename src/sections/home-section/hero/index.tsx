@@ -24,17 +24,17 @@ const HeroSection = () => {
         <Carousel.Slide>
           <div
             style={{
-              background: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${slideOne}')`,
+              background: `linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('${slideOne}')`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPosition: "center"
             }}
             className='h-screen'
           >
-            <div className='absolute top-[300px] lg:top-[250px] left-5 lg:left-[250px]'>
-              <p className='text-white font-bol text-[30px] lg:text-[40px] uppercase'>The Best School</p>
-              <h3 className='text-white font-bold text-[50px] lg:text-[90px] uppercase'>Education</h3>
-              <button className='bg-mine p-3 font-bold text-[20px] rounded px-3 lg:px-6'>
+            <div className='absolute top-[300px] lg:top-[250px] left-5 lg:left-[250px] leading-[2.6rem]'>
+              <p className='text-white font-bol text-[15px] lg:text-[20px] uppercase'>The Best School</p>
+              <h3 className='text-white font-bold text-[30px] lg:text-[60px] uppercase'>Education</h3>
+              <button className='bg-mine w-[120px] text-[16px] mt-10'>
                 Join Us
               </button>
             </div>
@@ -47,17 +47,17 @@ const HeroSection = () => {
         <Carousel.Slide>
           <div
             style={{
-              background: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${slideTwo}')`,
+              background: `linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('${slideTwo}')`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPosition: "center"
             }}
             className='h-screen'
           >
-            <div className='absolute top-[300px] lg:top-[250px] left-5 lg:left-[250px]'>
-              <p className='text-white font-bol text-[30px] lg:text-[40px] uppercase'>The Best School</p>
-              <h3 className='text-white font-bold text-[50px] lg:text-[90px] uppercase'>Education</h3>
-              <button className='bg-mine p-3 font-bold text-[20px] rounded px-3 lg:px-6'>
+            <div className='absolute top-[300px] lg:top-[250px] left-5 lg:left-[250px] leading-[2.6rem]'>
+              <p className='text-white font-bol text-[15px] lg:text-[20px] uppercase'>The Best School</p>
+              <h3 className='text-white font-bold text-[20px] lg:text-[60px] uppercase'>Education</h3>
+              <button className='bg-mine w-[120px] text-[16px] mt-10'>
                 Join Us
               </button>
             </div>

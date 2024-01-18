@@ -2,6 +2,7 @@ import "react-multi-carousel/lib/styles.css";
 
 import CoursesCard from '~/components/cards/courses-card/home-page'
 import CustumizedCarousel from "~/components/carousel";
+import MantineCarousel from "~/components/carousel/components/MantineCarousel";
 import MoreButton from "~/components/more-button";
 import React from 'react'
 import { RootState } from "~/lib/store";
@@ -28,6 +29,7 @@ const PopularCourses = () => {
       </CustumizedCarousel>
       <MoreButton classes="mt-10 lg:mt-5" to="/courses" label="View More" />
 
+{/* <MantineCarousel /> */}
     </div>
   )
 }
