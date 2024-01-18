@@ -40,7 +40,7 @@ export default function MantineCarousel() {
         </Carousel.Slide> */}
                 {
           carouselContent.slice(0, 6).map(({ authur, title, price, image, members, amount }, ind) => (
-            <Carousel.Slide className='h-full'>
+            <Carousel.Slide className='h-full' key={ind}>
               <CoursesCard authur={authur} title={title} price={price} image={image} key={ind} classes={""} members={members} amount={amount} />
             </Carousel.Slide>
           ))
