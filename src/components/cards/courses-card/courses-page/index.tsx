@@ -15,10 +15,8 @@ interface CardProp {
 
 const CourseCard = ({ authur, title, price, image, description, members, amount }: CardProp) => {
   return (
-    <div className='flex flex-col md:flex-row lg:flex-row items-center border-b p-3 gap-4 mb-3'>
-      <div className='w-[400px'>
-        <Image width={400} height={300} src={image} alt="" className='w-[400px] h-[202.5px] cursor-pointer transition-transform transform hover:-translate-y-1 hover:scale-110 duration-500 ease-in-out' />
-      </div>
+    <div className='flex flex-col md:flex-row lg:flex-row items-center border-b p-3 gap-4 mb-3 text-[14px] lg:text-[16px]  lg:w-[95%]'>
+        <Image width={400} height={300} src={image} alt="" className='w-[200px] lg:w-[250px] h-[200.5px] cursor-pointer transition-transform transform hover:-translate-y-1 hover:scale-110 duration-500 ease-in-out' />
       <div>
         <h1 className='font-bold mb-3'>{title}</h1>
         <p className='mb-3'>{description}</p>

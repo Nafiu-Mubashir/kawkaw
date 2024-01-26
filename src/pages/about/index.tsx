@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 import { SinglePageLayout } from '~/layouts/single-page-layout'
 import Team from '~/sections/about-sections/team'
-import WhyChooseUs from '~/sections/home-section/why'
+import WhatMakeUsSpecial from '~/sections/about-sections/what-make-us'
 
 const About = () => {
   const content = [
@@ -31,7 +31,7 @@ const About = () => {
 
   return (
     <div>
-      <div className=' w-full lg:w-[80%] m-auto'>
+      <div className=' w-full lg:w-[80%] m-auto mb-5'>
         <div className='lg:w-[50%] m-auto p-3 mt-4'>
           <h3 className='text-center font-bold'>Learn with passion to live with purpose.</h3>
           <p className='text-center text-gray-400 text-[13px] lg:text-[14px] mt-1'>Neque convallis a cras semper auctor. Libero id faucibus nisl tincidunt egetnvallis a cras semper auctonvallis a cras semper aucto.</p>
@@ -53,7 +53,7 @@ const About = () => {
         </div>
       </div>
 
-      <WhyChooseUs />
+      <WhatMakeUsSpecial />
       <Team />
       
     </div>

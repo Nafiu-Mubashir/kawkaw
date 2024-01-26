@@ -19,7 +19,7 @@ export const SingleEvent = () => {
 
   return (
     <div>
-      <div className='w-[95%] lg:w-[80%] m-auto p-3 lg:p-8 flex flex-col md:flex-row lg:flex-row justify-between'>
+      <div className='w-full lg:w-[80%] m-auto p-3 lg:p-8 flex flex-col md:flex-row lg:flex-row justify-between'>
         <div className='w-full md:w-[70%] lg:w-[75%]'>
           <h3 className='font-bold mb-3'>{single?.title}</h3>
           <div

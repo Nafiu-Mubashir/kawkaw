@@ -6,7 +6,7 @@ export interface CoursesCard {
     amount: number;
     category: string;
     price: 'Free' | 'Paid';
-    discount?: string;
+    // discount?: string;
     description: string;
     members: number;
   }[]

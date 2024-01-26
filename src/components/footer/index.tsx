@@ -90,7 +90,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t-2 p-4 lg:p-8">
+      <div className="border-t border-gray-600 p-4 lg:p-8">
         <div className="w-[95%] lg:w-[80%] m-auto sm:flex sm:items-center sm:justify-between ">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <Link className="hover:underline" href={''}>Kawkaw™</Link>. All Rights Reserved.
           </span>

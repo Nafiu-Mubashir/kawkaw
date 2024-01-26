@@ -20,16 +20,16 @@ const PopularCourses = () => {
         <h3 className='font-bold text-[25px] lg:text-[50px]'>Popular Course</h3>
         <p className='text-[14px] lg:text-[20px] text-gray-500'>Limitless Learning, more possible</p>
       </div>
-      <CustumizedCarousel classes={'h-[85vh] md:h-[85vh] lg:h-[70vh]'}>
+      {/* <CustumizedCarousel classes={'h-[85vh] md:h-[85vh] lg:h-[70vh]'}>
         {
           carouselContent.slice(0, 6).map(({ authur, title, price, image, members, amount }, ind) => (
             <CoursesCard authur={authur} title={title} price={price} image={image} key={ind} classes={""} members={members} amount={amount} />
           ))
         }
-      </CustumizedCarousel>
+      </CustumizedCarousel> */}
+      <MantineCarousel />
       <MoreButton classes="mt-10 lg:mt-5" to="/courses" label="View More" />
 
-{/* <MantineCarousel /> */}
     </div>
   )
 }

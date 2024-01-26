@@ -10,7 +10,7 @@ export default function Events() {
   const events = useSelector((state: RootState) => state.events.events)
   return (
     <div>
-      <Tabs defaultValue="happening" color='#FFB606' className='w-[80%] m-auto mb-5 mt-10'>
+      <Tabs defaultValue="happening" color='#FFB606' className='w-full lg:w-[80%] m-auto mb-5 mt-3 lg:mt-10 p-3'>
         <Tabs.List grow justify="center">
           <Tabs.Tab value="happening">Happening</Tabs.Tab>
           <Tabs.Tab value="upcoming">Upcoming</Tabs.Tab>

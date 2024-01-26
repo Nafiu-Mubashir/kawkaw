@@ -1,4 +1,5 @@
 import Events from '~/sections/home-section/events'
+import Feedbacks from '~/sections/home-section/testimony'
 import HeroSection from '~/sections/home-section/hero'
 import { Inter } from 'next/font/google'
 import LatestNews from '~/sections/home-section/news'
@@ -17,6 +18,8 @@ export default function Home() {
       <WhyChooseUs />
       <Events />
       <LatestNews />
+      <Feedbacks />
+
     </main>
   )
 }

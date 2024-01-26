@@ -49,3 +49,7 @@ body {
 .label:focus{
   color: #FFB606
 }
+
+.mantine-Carousel-controls{
+  display: hidden;
+}

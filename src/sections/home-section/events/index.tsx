@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 const Events = () => {
   const events = useSelector((state: RootState) => state.events.events)
   return (
-    <div className='p- lg:p-8'>
+    <div className='p-3 lg:p-8'>
       <div className='w-full lg:w-[80%] m-auto'>
         <div className='flex flex-col md:flex-row lg:flex-row justify-between item-center mb-5'>
           <div>

@@ -99,15 +99,13 @@ export const Navabr = ({position}:{position: string}) => {
                   <NavLink href={'/'} classNames={`${isNavbarWhite ? "text-black" : "text-white"}`}>Home</NavLink>
                   <NavLink href={'/about'} classNames={`${isNavbarWhite ? "text-black" : "text-white"}`}>About</NavLink>
                   <NavLink href={"/courses"} classNames={`${isNavbarWhite ? "text-black" : "text-white"}`}>
-                    <Dropdown title={"Courses"} data={[{ name: "All courses", link: "/courses" }, { name: "Single courses", link: "/courses" }]}
+                    Courses
+                    {/* <Dropdown title={"Courses"} data={[{ name: "All courses", link: "/courses" }, { name: "Single courses", link: "/courses" }]}
                       open={openCourse}
-                      toggle={toggles} color={`${isNavbarWhite ? "text-black" : "text-white"}`} fill={`${isNavbarWhite ? "black" : "white"}`} />
+                      toggle={toggles} color={`${isNavbarWhite ? "text-black" : "text-white"}`} fill={`${isNavbarWhite ? "black" : "white"}`} /> */}
                   </NavLink>
                   <NavLink href={'/events'} classNames={`${isNavbarWhite ? "text-black" : "text-white"}`}>
                     Events
-                    {/* <Dropdown title={"Events"} data={[{ name: "All events", link: "/events" }, { name: "Single events", link: "/all-course" }]}
-                      open={openEvent}
-                      toggle={toggling} color={`${isNavbarWhite ? "text-black" : "text-white"}`} fill={`${isNavbarWhite ? "black" : "white"}`} /> */}
                   </NavLink>
                   <NavLink href={'/blog'} classNames={`${isNavbarWhite ? "text-black" : "text-white"}`}>Blog</NavLink>
                   <NavLink href={'/faqs'} classNames={`${isNavbarWhite ? "text-black" : "text-white"}`}>FAQs</NavLink>

@@ -1,9 +1,7 @@
 import { Carousel } from '@mantine/carousel'
 import CoursesCard from '~/components/cards/courses-card/home-page'
-import Image from 'next/image'
 import React from 'react'
 import { RootState } from '~/lib/store';
-import { relative } from 'path';
 import { useSelector } from 'react-redux';
 
 export default function MantineCarousel() {
@@ -14,8 +12,9 @@ export default function MantineCarousel() {
         // slideSize="70%" height={200} slideGap="md"
         withIndicators
         height={550}
-        slideSize={{ base: '100%', sm: '50%', md: '33.333333%' }}
-        slideGap={{ base: 0, sm: 'md' }}
+        slideSize={{ base: '100%', sm: '50%', md: '20%' }}
+        slideGap={{ base: 0, sm: 'sm',lg:'lg',md: 'md', xl:'xl', xs: 'xs' }}
+        slidesToScroll={1}
         loop
         align="start"
         styles={{
@@ -26,14 +25,23 @@ export default function MantineCarousel() {
             borderRadius: 'none',
             height: '50px',
             width: '50px',
-            border: '5px sloid black'
+          },
+          controls:{
+            border: '5px sloid black',
+            position: 'absolute',
+            top: '-100px',
+            left: 'auto',
+            gap: '10px',
+          },
+          indicator:{
+            borderRadius: '50px',
+            width: '10px',
+            height: '10px',
+            backgroundColor: '#FFB606'
           }
         }}
-        classNames={{
-          container: "",
-          control: "relative top-0"
-        }}
-        className='w-[95%] m-auto'
+        classNames={{  }}
+        className='w-[99%] m-auto'
       >
         {/* <Carousel.Slide>
           <CoursesCard authur={'/.mk;ef'} classes={'mx-[56px]'} title={';lmf'} price={',mv./'} image={'/carousel1.webp'} members={172} amount={38} />

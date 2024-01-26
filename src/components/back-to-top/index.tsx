@@ -26,7 +26,7 @@ const BackToTopButton = () => {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-4 right-4 p-2 bg-gray-800 text-white ${isVisible ? 'visible' : 'invisible'}`}
+      className={`fixed bottom-4 right-4 p-2 bg-gray-800 text-white ${isVisible ? 'visible z-30' : 'invisible'}`}
     >
       <ArrowUp2 size="16" variant="TwoTone" color="white"/>
     </button>
