@@ -1,6 +1,8 @@
 import { Airdrop, Cup, KeyboardOpen, WifiSquare } from 'iconsax-react'
 import React, { useEffect, useState } from 'react'
 
+import LogoSlider from '~/components/logoSlider'
+import Place from '~/sections/about-sections/place'
 import { SinglePageLayout } from '~/layouts/single-page-layout'
 import Team from '~/sections/about-sections/team'
 import WhatMakeUsSpecial from '~/sections/about-sections/what-make-us'
@@ -55,7 +57,8 @@ const About = () => {
 
       <WhatMakeUsSpecial />
       <Team />
-      
+      <Place />
+      <LogoSlider />
     </div>
   )
 }

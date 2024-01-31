@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 export function SinglePageLayout({ image, children }: { image?: string, children: React.ReactNode }) {
   const fallBackImg = '/top-heading-course-new.webp';
   const { asPath, basePath } = useRouter();
-  const path = asPath.replace(/[#\?.*$]/g, "").split('/').filter(el => el);
+  const path = asPath.replace(/[?#].*$/, "").split('/').filter(el => el);
 
 
   return (

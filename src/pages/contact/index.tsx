@@ -4,6 +4,7 @@ import CustomForm from '~/components/form'
 import CustumizedCarousel from '~/components/carousel'
 import Image from 'next/image'
 import Link from 'next/link'
+import LogoSlider from '~/components/logoSlider'
 import React from 'react'
 import { SinglePageLayout } from '~/layouts/single-page-layout'
 
@@ -67,11 +68,7 @@ const Contact = () => {
         </iframe>
       </div>
 
-      {/* <CustumizedCarousel classes={undefined}> 
-      <Image src={'/contact-logos/banner1.webp'} width={145} height={45} alt='' />
-        <Image src={'/contact-logos/banner1.webp'} width={145} height={45} alt='' />
-      
-      </CustumizedCarousel> */}
+      <LogoSlider />
     </div>
   )
 }

@@ -2,7 +2,7 @@ import { ArrayParam, BooleanParam, NumberParam, StringParam, useQueryParams, wit
 
 export const useDataControl = (rows = 12) => {
   return useQueryParams({
-    dataOrientation: withDefault(BooleanParam, false),
+    dataOrientation: withDefault(StringParam, "list"),
     search: withDefault(StringParam, ''),
     page_size: withDefault(NumberParam, rows),
     page: withDefault(NumberParam, 1),

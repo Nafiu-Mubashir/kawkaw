@@ -50,7 +50,7 @@ const WhatMakeUsSpecial = () => {
         <div className='w-[90%] lg:w-[50%] m-auto flex justify-between gap-4 '>
           <QuoteUp size="" color="" className='w-[200px] md:w-[50px] lg:w-[50px] stroke-mine' />
          <div>
-            <h3 className='font-semi-bold mb-3'>Cras tristique turpis justo, eu consequat sem adipiscing ut. Donec posuere bibendum metus.</h3>
+            <h3 className='font-bold mb-3'>Cras tristique turpis justo, eu consequat sem adipiscing ut. Donec posuere bibendum metus.</h3>
             <p className='text-[14px]'>Tony Nguyen, Co-Founder</p>
          </div>
         </div>
