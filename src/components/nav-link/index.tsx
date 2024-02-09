@@ -7,7 +7,7 @@ export function NavLink({ href, children, classNames }: { href: string; children
 
   return (
     <Link href={href}>
-      <div className={`${classNames} hover:border-b-2 hover:border-mine hover:text-mine px-4 py-3 text-sm font-medium ${isActive ? 'border-b-2 border-mine ' : ''}`}>
+      <div className={`${classNames} lg:hover:border-b-2 lg:hover:border-mine hover:text-mine px-4 py-3 text-sm font-medium ${isActive ? 'lg:border-b-2 lg:border-mine text-mine' : ''}`}>
         {children}
       </div>
     </Link>

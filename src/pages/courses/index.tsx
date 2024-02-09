@@ -1,19 +1,14 @@
-import { Category, Element3, Firstline, Task } from 'iconsax-react';
-import React, { ChangeEvent, useEffect, useMemo, useState } from 'react';
+import { Category, Element3, Task } from 'iconsax-react';
+import React, { useMemo, useState } from 'react';
 
 import CourseCard from '~/components/cards/courses-card/courses-page';
 import CoursesCard from '~/components/cards/courses-card/home-page';
+import Pagination from '~/components/pagination';
 import { RootState } from '~/lib/store';
 import { SinglePageLayout } from '~/layouts/single-page-layout';
 import debounce from 'lodash/debounce';
 import { useDataControl } from '~/hooks';
 import { useSelector } from 'react-redux';
-
-interface FilterOptions {
-  categories: { name: string; count: number }[];
-  prices: { name: string; count: number }[];
-  authur: { name: string; count: number }[];
-}
 
 export default function Courses() {
   const courses = useSelector((state: RootState) => state.course.course);
@@ -25,7 +20,6 @@ export default function Courses() {
     prices,
     authors,
     categories,
-    dataOrientation,
     page,
     page_size,
     search,
@@ -92,38 +86,35 @@ export default function Courses() {
 
   const authur = reducer(courses, 'authur');
 
-const filteredData = useMemo(() => {
-  let result = courses;
+  const filteredData = useMemo(() => {
+    let result = courses;
 
-  result = result
-    .filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
-    
-    .filter((item) => {
-      if (categories && categories.length > 0) {
-        return categories.includes(item.category);
-      }
-      return true; 
-    })
-    
-    // .filter((item) => {
-    //   if (authur) {
-    //     return item.authur.toLowerCase().includes(authors.toLowerCase());
-    //   }
-    //   return true; 
-    // })
-    
-    .filter((item) => {
-      if (prices) {
-        return item.price.toLowerCase().includes(prices.toLowerCase())
-      }
-      return true
-    })
+    result = result
+      .filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
 
-  return result;
-}, [search, categories, authors]);
+      .filter((item) => {
+        if (categories && categories.length > 0) {
+          return categories.includes(item.category);
+        }
+        return true;
+      })
 
-console.log(filteredData);
+      // .filter((item) => {
+      //   if (authur) {
+      //     return item.authur.toLowerCase().includes(authors.toLowerCase());
+      //   }
+      //   return true;
+      // })
 
+      .filter((item) => {
+        if (prices) {
+          return item.price.toLowerCase().includes(prices.toLowerCase());
+        }
+        return true;
+      });
+
+    return result;
+  }, [search, categories, authors]);
 
   return (
     <div>

@@ -33,6 +33,7 @@ const LogoSlider = () => {
         slideGap={{ base: 0, sm: 'sm', lg: 'lg', md: 'md', xl: 'xl', xs: 'xs' }}
         slidesToScroll={1}
         loop
+        controlsOffset={'xs'}
         align='start'
         styles={{
           container: {},
@@ -42,11 +43,14 @@ const LogoSlider = () => {
             borderRadius: '50px',
             width: '10px',
             height: '10px',
-            backgroundColor: '#FFB606',
+            // backgroundColor: '#FFB606',
           },
         }}
-        classNames={{}}
-        className='w-[99%] lg:w-[80%] h-[35vh] md:h-[40vh] lg:h-[15vh] m-auto'>
+        classNames={{
+          control: '!bg-transparent !border-none !shadow-none !hover:bg-none mt-[20px',
+          
+        }}
+        className='w-[99%] lg:w-[80%] h-[20vh] md:h-[20vh] lg:h-[15vh] m-auto lg:px-12'>
         {content.map(({ image }, id) => (
           <Carousel.Slide className='mt-10' key={id}>
             <Image
@@ -54,7 +58,7 @@ const LogoSlider = () => {
               alt={'image'}
               width={145}
               height={45}
-              className='hover:cursor-pointer m-auto'
+              className='hover:cursor-pointer m-auto grayscale hover:grayscale-0'
             />
           </Carousel.Slide>
         ))}

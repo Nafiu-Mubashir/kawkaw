@@ -23,7 +23,7 @@ const WhatMakeUsSpecial = () => {
   ]
   return (
     <div>
-      <div className='bg-[#F0F4FA] p-3 md:p-4 lg:p-8'>
+      <div className='bg-[#F0F4FA] p-3 md:p-4 lg:py-[60px]'>
         <div className='text-center mb-5'>
           <h3 className='font-bold text-[20px]'>What Make Us Spcecial?</h3>
           <p className='text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipisc ing elit.</p>
