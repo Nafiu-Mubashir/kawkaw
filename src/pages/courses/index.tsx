@@ -188,8 +188,9 @@ export default function Courses() {
               </div>
             </div>
           </div>
-
+          
           {dataControl.dataOrientation == 'list' ? (
+            
             filteredData.map(
               (
                 { authur, title, price, image, description, members, amount },
@@ -209,6 +210,7 @@ export default function Courses() {
             )
           ) : (
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-2'>
+              
               {filteredData.map(
                 ({ authur, title, price, image, members, amount }, ind) => (
                   <CoursesCard
