@@ -16,44 +16,47 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-h1,h2,h3{
+h1,
+h2,
+h3 {
   font-family: 'Roboto Slab';
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
+  background-color: white;
 }
 
 /* .bg-image{
   background:linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.3)), url(https://picsum.photos/id/1043/800/600);
 } */
 
-.about:nth-child(2){
-  color: #4489F3
+.about:nth-child(2) {
+  color: #4489f3;
 }
 
-.about:nth-child(3){
-  color: #FFB606
+.about:nth-child(3) {
+  color: #ffb606;
 }
 
-.about:nth-child(2):hover{
-  border-bottom-color: #4489F3;
+.about:nth-child(2):hover {
+  border-bottom-color: #4489f3;
 }
 
-.about:nth-child(3):hover{
-  border-bottom-color: #FFB606;
+.about:nth-child(3):hover {
+  border-bottom-color: #ffb606;
 }
 
-.label:focus{
-  color: #FFB606
+.label:focus {
+  color: #ffb606;
 }
 
-.mantine-Carousel-controls{
+.mantine-Carousel-controls {
   display: hidden;
 }
