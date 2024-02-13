@@ -1,9 +1,10 @@
-import { Category, Element3, Task } from 'iconsax-react';
+import { Element3, Task } from 'iconsax-react';
 import React, { useMemo, useState } from 'react';
 
 import CourseCard from '~/components/cards/courses-card/courses-page';
 import CoursesCard from '~/components/cards/courses-card/home-page';
-import Pagination from '~/components/pagination';
+import Link from 'next/link';
+import { Pagination } from '@mantine/core';
 import { RootState } from '~/lib/store';
 import { SinglePageLayout } from '~/layouts/single-page-layout';
 import debounce from 'lodash/debounce';
@@ -16,14 +17,7 @@ export default function Courses() {
   const [dataControl, setDataControl] = useDataControl();
   const [inAppSearch, setInAppSearch] = useState('');
 
-  const {
-    prices,
-    authors,
-    categories,
-    page,
-    page_size,
-    search,
-  } = dataControl;
+  const { prices, authors, categories, page, page_size, search } = dataControl;
 
   const setDebouncedSearch = debounce(
     (search: string) =>
@@ -116,6 +110,16 @@ export default function Courses() {
     return result;
   }, [search, categories, authors]);
 
+  const totalPages = Math.ceil(filteredData.length / 12);
+  const handlePageChange = (page: number) => {
+    setDataControl({
+      page: page,
+    });
+  };
+  const indexOfLastData = page * 12;
+  const indexOfFirstData = indexOfLastData - 12;
+  const currentData = filteredData.slice(indexOfFirstData, indexOfLastData);
+
   return (
     <div>
       <div className='grid grid-row md:grid-cols-4 lg:grid-cols-4 gap-3 mt-5 w-full md:w-[95%] lg:w-[80%] m-auto p- overflow-hidden'>
@@ -143,7 +147,9 @@ export default function Courses() {
                 />
                 {/* <Firstline size="32" color="gray" /> */}
               </div>
-              <p className='hidden lg:block'>Showing 1-12 of 19 results</p>
+              <p className='hidden lg:block'>
+                Showing 1-12 of {filteredData.length} results
+              </p>
             </div>
 
             <div className='flex justify-between flex-wrap md:flex-nowrap lg:flex-nowrap gap-4'>
@@ -188,10 +194,9 @@ export default function Courses() {
               </div>
             </div>
           </div>
-          
+
           {dataControl.dataOrientation == 'list' ? (
-            
-            filteredData.map(
+            currentData.map(
               (
                 { authur, title, price, image, description, members, amount },
                 ind
@@ -209,9 +214,8 @@ export default function Courses() {
               )
             )
           ) : (
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-2'>
-              
-              {filteredData.map(
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-2 p-3 md:p-0 lg:p-0'>
+              {currentData.map(
                 ({ authur, title, price, image, members, amount }, ind) => (
                   <CoursesCard
                     authur={authur}
@@ -220,82 +224,129 @@ export default function Courses() {
                     image={image}
                     key={ind}
                     members={members}
-                    classes=''
+                    classes='md:w-[280px] lg:w-[270px]'
                     amount={amount}
                   />
                 )
               )}
             </div>
           )}
+
+          <Pagination
+            total={totalPages}
+            value={page}
+            onChange={handlePageChange}
+            color='#FFB606'
+            className='mt-5 w-[50%] md:w-[30%] lg:w-[20%] m-auto mb-4 sticky'
+          />
         </div>
-        <div className='border col-span-3 md:col-span-1 lg:col-span-1 p-3 w-full'>
-          <div className='mb-3'>
-            <h3 className='p-2 font-bold mb-3'>Categories</h3>
-            <label>
-              {category
-                .sort((a: { category: string }, b: { category: string }) =>
-                  a.category.localeCompare(b.category)
-                )
-                .map(({ category, count }) => (
-                  <div key={category} className='flex justify-between'>
-                    <label className='font-medium text-gray-900 capitalize flex gap-2 items-center mb-2'>
+
+        <div className='col-span-3 md:col-span-1 lg:col-span-1 p-3 w-full'>
+          <div className='border p-3 mb-3'>
+            <div className='mb-3'>
+              <h3 className='p-2 font-bold mb-3 after:block after:h-[3px] after:w-[30px] after:bg-mine'>
+                Categories
+              </h3>
+              <label>
+                {category
+                  .sort((a: { category: string }, b: { category: string }) =>
+                    a.category.localeCompare(b.category)
+                  )
+                  .map(({ category, count }) => (
+                    <div key={category} className='flex justify-between'>
+                      <label className='font-normal capitalize flex gap-2 items-center mb-2'>
+                        <input
+                          type='checkbox'
+                          value={category}
+                          checked={categories.includes(category)}
+                          onChange={(e) =>
+                            handleChecked(e, 'categories', category)
+                          }
+                          className='w-4 h-4 text-white border-gray-100'
+                        />
+                        {category}
+                      </label>
+                      <p className='font-normal'>{count}</p>
+                    </div>
+                  ))}
+              </label>
+            </div>
+
+            <div className='mb-3'>
+              <h3 className='p-2 font-bold mb-3 after:block after:h-[3px] after:w-[30px] after:bg-mine'>
+                Author
+              </h3>
+              <label>
+                {authur.map(({ authur, count }) => (
+                  <div key={authur} className='flex justify-between'>
+                    <label className='font-normal capitalize flex gap-2 items-center mb-2'>
                       <input
                         type='checkbox'
-                        value={category}
-                        checked={categories.includes(category)}
-                        onChange={(e) =>
-                          handleChecked(e, 'categories', category)
-                        }
+                        value={authur}
+                        checked={authors.includes(authur)}
+                        onChange={(e) => handleChecked(e, 'authors', authur)}
                         className='w-4 h-4 text-white border-gray-100'
                       />
-                      {category}
+                      {authur}
                     </label>
-                    <p>{count}</p>
+                    <p className='font-normal'>{count}</p>
                   </div>
                 ))}
-            </label>
+              </label>
+            </div>
+
+            <div className='mb-3'>
+              <h3 className='p-2 font-bold mb-3 after:block after:h-[3px] after:w-[30px] after:bg-mine'>
+                Price
+              </h3>
+              <label>
+                {price.map(({ price, count }) => (
+                  <div key={price} className='flex justify-between'>
+                    <label className='font-normal capitalize flex gap-2 items-center mb-2'>
+                      <input
+                        type='checkbox'
+                        value={price}
+                        checked={prices === price}
+                        onChange={(e) => setDataControl({ prices: price })}
+                        className='w-4 h-4 text-white border-gray-100'
+                      />
+                      {price}
+                    </label>
+                    <p className='font-normal'>{count}</p>
+                  </div>
+                ))}
+              </label>
+            </div>
+
+            <div className='flex justify-between gap-2'>
+              <button className='py-2 w-1/2 border border-mine bg-mine'>
+                Filter
+              </button>
+              <button className='py-2 w-1/2 border border-mine '>Reset</button>
+            </div>
           </div>
 
-          <div className='mb-3'>
-            <h3 className='p-2 font-bold mb-3'>Author</h3>
-            <label>
-              {authur.map(({ authur, count }) => (
-                <div key={authur} className='flex justify-between'>
-                  <label className='font-medium text-gray-900 capitalize flex gap-2 items-center mb-2'>
-                    <input
-                      type='checkbox'
-                      value={authur}
-                      checked={authors.includes(authur)}
-                      onChange={(e) => handleChecked(e, 'authors', authur)}
-                      className='w-4 h-4 text-white border-gray-100'
-                    />
-                    {authur}
-                  </label>
-                  <p>{count}</p>
-                </div>
-              ))}
-            </label>
-          </div>
-
-          <div className='mb-3'>
-            <h3 className='p-2 font-bold mb-3'>Price</h3>
-            <label>
-              {price.map(({ price, count }) => (
-                <div key={price} className='flex justify-between'>
-                  <label className='font-medium text-gray-900 capitalize flex gap-2 items-center mb-2'>
-                    <input
-                      type='checkbox'
-                      value={price}
-                      checked={prices === price}
-                      onChange={(e) => setDataControl({ prices: price })}
-                      className='w-4 h-4 text-white border-gray-100'
-                    />
-                    {price}
-                  </label>
-                  <p>{count}</p>
-                </div>
-              ))}
-            </label>
+          <div className='border-l'>
+            <div className='mb-3'>
+              <h3 className='border-l-4 border-l-mine font-bold p-2 text-[20px]'>
+                All Courses
+              </h3>
+              <div className='p-2'>
+                {category
+                  .sort((a: { category: string }, b: { category: string }) =>
+                    a.category.localeCompare(b.category)
+                  )
+                  .map(({ category, count }) => (
+                    <div key={category} className='flex justify-between'>
+                      <Link
+                        className='font-normal capitalize p-1 hover:text-mine'
+                        href={'#'}>
+                        {category}
+                      </Link>
+                    </div>
+                  ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

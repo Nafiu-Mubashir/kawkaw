@@ -1,7 +1,7 @@
 import { Carousel } from '@mantine/carousel';
 import { ExportSquare } from 'iconsax-react';
 import Image from 'next/image';
-import React from 'react'
+import React from 'react';
 import { RootState } from '~/lib/store';
 import { useSelector } from 'react-redux';
 
@@ -16,18 +16,17 @@ const LatestNews = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
-      className='h-[573px]'>
-      <div className='w-[95%] lg:w-[90%] m-auto mb-4 p- lg:p-8 relative'>
-        <div className='mb-6'>
-          <h3 className='font-bold text-[25px] lg:text-[30px] text-white'>
+      className='h-[573px] p-[70px]'>
+      <div className='w-[95%] lg:w-[90%] m-auto mb-4 p-4 lg:p-8'>
+        <div className=''>
+          <h3 className='font-bold text-[22px] lg:text-[28px] text-white'>
             Latest News
           </h3>
-          <p className='text-[14px] text-white'>
+          <p className='text-[15px] text-white'>
             Limitless Learning, more possible
           </p>
         </div>
         <Carousel
-          // slideSize="70%" height={200} slideGap="md"
           withIndicators
           height={550}
           slideSize={{ base: '100%', sm: '50%', md: '20%' }}
@@ -54,7 +53,7 @@ const LatestNews = () => {
             controls: {
               border: '5px sloid black',
               position: 'absolute',
-              top: '-80px',
+              top: '-50px',
               left: 'auto',
               gap: '10px',
             },
@@ -63,6 +62,8 @@ const LatestNews = () => {
               width: '10px',
               height: '10px',
               backgroundColor: '#FFB606',
+              position: 'relative',
+              top: '-60px',
             },
           }}
           classNames={{
@@ -70,10 +71,10 @@ const LatestNews = () => {
               '!hidden lg:!flex !rounded-md hover:!border-mine !border-white border !rounded-none !bg-transparent',
             indicator: '!flex lg:!hidden',
           }}
-          className='w-[99%] h-[50vh] m-auto'>
+          className='w-[100%] h-[50vh] m-auto'>
           {NEWS.slice(0, 6).map(({ author, image, title }, id) => (
             <Carousel.Slide className='mt-10' key={id}>
-              <div className='w-full relative md:w-[350px] lg:w-[400px] h-[500px] overflow-hidden'>
+              <div className='w-full relative md:w-[250px] lg:w-[400px] h-[500px] overflow-hidden'>
                 <div className='group'>
                   <Image
                     src={image}
@@ -82,12 +83,14 @@ const LatestNews = () => {
                     height={208}
                     className='group-hover:brightness-50'
                   />
-                  <div className='bg-mine w-[122.5px] lg:w-[200px] h-[50px] lg:h-[30px] lg:m-auto text-center mt-[-20px]'>
-                    <p>Hinata Hyuga - 20/08/2022 </p>
+                  <div className='md:absolute lg:absolute left-0 right-0 md:top-[120px] top-[200px]'>
+                    <div className='bg-mine w-full md:w-[300px] m-auto lg:w-[200px] h-[42px] md:h-[30px] lg:h-[30px] text-[14px] lg:m-auto text-center '>
+                      <p>Hinata Hyuga - 20/08/2022 </p>
+                    </div>
+                    <p className='text-white text-center'>
+                      Admin earns scholarship{' '}
+                    </p>
                   </div>
-                  <p className='text-white text-center'>
-                    Admin earns scholarship{' '}
-                  </p>
                   <ExportSquare
                     size='16'
                     color='white'
@@ -101,6 +104,6 @@ const LatestNews = () => {
       </div>
     </div>
   );
-}
+};
 
-export default LatestNews
+export default LatestNews;

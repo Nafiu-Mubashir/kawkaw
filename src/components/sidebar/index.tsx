@@ -15,7 +15,7 @@ export function Sidebar({ colors }: { colors: string }) {
         size='90%'
         title='Authentication'
         className='lg:hidden'>
-        <div className='sm:hidden' id='mobile-menu'>
+        <div className='sm:block' id='mobile-menu'>
           <div className='space-y-1 px-2 pb-3 pt-2'>
             <NavLink href={'/'} classNames={'text-black'}>
               Home

@@ -7,33 +7,34 @@ import { Navabr } from '~/components/navbar';
 
 const HeroSection = () => {
   const slideOne = '/carousel1.webp';
-  const slideTwo = '/bg-slide-2.webp'
+  const slideTwo = '/bg-slide-2.webp';
   const autoplay = useRef(Autoplay({ delay: 5000 }));
 
   return (
     <div>
-
-      <Navabr position='fixed'/>
+      <Navabr position='fixed' />
       <Carousel
         // withIndicators
-        height={"100%"}
+        height={'100%'}
         loop
         plugins={[autoplay.current]}
-        className='w-ful h-screen mb-4'
-      >
+        className='w-ful h-screen mb-4'>
         <Carousel.Slide>
           <div
             style={{
               background: `linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('${slideOne}')`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              backgroundPosition: "center"
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
             }}
-            className='h-screen'
-          >
+            className='h-screen'>
             <div className='absolute top-[300px] lg:top-[250px] left-5 lg:left-[250px] leading-[2.6rem]'>
-              <p className='text-white font-bol text-[15px] lg:text-[20px] uppercase'>The Best School</p>
-              <h3 className='text-white font-bold text-[30px] lg:text-[60px] uppercase'>Education</h3>
+              <p className='text-white font-bol text-[15px] lg:text-[20px] uppercase'>
+                The Best School
+              </p>
+              <h3 className='text-white font-bold text-[30px] lg:text-[70px] uppercase'>
+                Education
+              </h3>
               <button className='bg-mine w-[120px] text-[16px] mt-10'>
                 Join Us
               </button>
@@ -48,22 +49,25 @@ const HeroSection = () => {
           <div
             style={{
               background: `linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('${slideTwo}')`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              backgroundPosition: "center"
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
             }}
-            className='h-screen'
-          >
+            className='h-screen'>
             <div className='absolute top-[300px] lg:top-[250px] left-5 lg:left-[250px] leading-[2.6rem]'>
-              <p className='text-white font-bol text-[15px] lg:text-[20px] uppercase'>The Best School</p>
-              <h3 className='text-white font-bold text-[20px] lg:text-[60px] uppercase'>Education</h3>
+              <p className='text-white font-bol text-[15px] lg:text-[20px] uppercase'>
+                The Best School
+              </p>
+              <h3 className='text-white font-bold text-[20px] lg:text-[70px] uppercase'>
+                Education
+              </h3>
               <button className='bg-mine w-[120px] text-[16px] mt-10'>
                 Join Us
               </button>
             </div>
-          <div className='relative hidden md:block lg:block md:top-[500px] lg:top-[600px]'>
-            <CarouselCards />
-          </div>
+            <div className='relative hidden md:block lg:block md:top-[500px] lg:top-[600px]'>
+              <CarouselCards />
+            </div>
           </div>
         </Carousel.Slide>
       </Carousel>
@@ -71,7 +75,7 @@ const HeroSection = () => {
         <CarouselCards />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HeroSection
+export default HeroSection;

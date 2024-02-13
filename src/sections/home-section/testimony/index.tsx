@@ -5,8 +5,8 @@ const Feedbacks = () => {
     <>
       <div className='mb-4 p-8'>
         <div className='mb-5'>
-          <h3 className='font-bold text-[20px] text-center'>What People Say</h3>
-          <p className='text-center text-gray-400'>
+          <h3 className='font-bold text-[22px] text-center'>What People Say</h3>
+          <p className='text-center text-gray-400 text-[15px]'>
             How real people said about Education WordPress Theme.
           </p>
         </div>
