@@ -1,4 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+public/about/GitHubDesktopSetup-x64.exe
 
 # dependencies
 /node_modules
