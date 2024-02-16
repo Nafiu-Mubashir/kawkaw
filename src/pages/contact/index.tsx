@@ -1,8 +1,6 @@
 import { Location, Profile, Timer1 } from 'iconsax-react'
 
 import CustomForm from '~/components/form'
-import CustumizedCarousel from '~/components/carousel'
-import Image from 'next/image'
 import Link from 'next/link'
 import LogoSlider from '~/components/logoSlider'
 import React from 'react'
