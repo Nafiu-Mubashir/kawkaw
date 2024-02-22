@@ -39,7 +39,7 @@ const About = () => {
     <div>
       <div className=' w-full lg:w-[80%] m-auto mb-[50px]'>
         <div className='lg:w-[50%] m-auto p-3 mt-4'>
-          <h3 className='text-center font-bold'>
+          <h3 className='text-center font-bold text-[22px] lg:text-[28px]'>
             Learn with passion to live with purpose.
           </h3>
           <p className='text-center text-gray-400 text-[13px] lg:text-[14px] mt-1'>

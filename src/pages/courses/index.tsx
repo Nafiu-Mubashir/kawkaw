@@ -3,6 +3,7 @@ import React, { useMemo, useState } from 'react';
 
 import CourseCard from '~/components/cards/courses-card/courses-page';
 import CoursesCard from '~/components/cards/courses-card/home-page';
+import LatestCourses from './components';
 import Link from 'next/link';
 import { Pagination } from '@mantine/core';
 import { RootState } from '~/lib/store';
@@ -108,7 +109,7 @@ export default function Courses() {
       });
 
     return result;
-  }, [search, categories, authors]);
+  }, [search, categories, courses, prices]);
 
   const totalPages = Math.ceil(filteredData.length / 12);
   const handlePageChange = (page: number) => {
@@ -124,114 +125,117 @@ export default function Courses() {
     <div>
       <div className='grid grid-row md:grid-cols-4 lg:grid-cols-4 gap-3 mt-5 w-full md:w-[95%] lg:w-[80%] m-auto p- overflow-hidden'>
         <div className='col-span-3 md:cols-2'>
-          <div className='p-2 bg-gray-100 mb-4 flex justify-between items-center'>
-            <div className='flex gap-4 items-center'>
-              <div className='flex gap-2'>
-                <Element3
-                  size='24'
-                  color={
-                    dataControl.dataOrientation === 'grid' ? 'orange' : 'gray'
-                  }
-                  variant='Bold'
-                  onClick={() => changeDisplay('grid')}
-                  className='hover:cursor-pointer'
-                />
-                <Task
-                  size='24'
-                  color={
-                    dataControl.dataOrientation === 'list' ? 'orange' : 'gray'
-                  }
-                  variant='Bold'
-                  onClick={() => changeDisplay('list')}
-                  className='hover:cursor-pointer'
-                />
-                {/* <Firstline size="32" color="gray" /> */}
+            <div className='p-2 bg-gray-100 mb-4 flex justify-between items-center'>
+              <div className='flex gap-4 items-center'>
+                <div className='flex gap-2'>
+                  <Element3
+                    size='24'
+                    color={
+                      dataControl.dataOrientation === 'grid' ? 'orange' : 'gray'
+                    }
+                    variant='Bold'
+                    onClick={() => changeDisplay('grid')}
+                    className='hover:cursor-pointer'
+                  />
+                  <Task
+                    size='24'
+                    color={
+                      dataControl.dataOrientation === 'list' ? 'orange' : 'gray'
+                    }
+                    variant='Bold'
+                    onClick={() => changeDisplay('list')}
+                    className='hover:cursor-pointer'
+                  />
+                  {/* <Firstline size="32" color="gray" /> */}
+                </div>
+                <p className='hidden lg:block'>
+                  Showing 1-12 of {filteredData.length} results
+                </p>
               </div>
-              <p className='hidden lg:block'>
-                Showing 1-12 of {filteredData.length} results
-              </p>
+
+              <div className='flex justify-between flex-wrap md:flex-nowrap lg:flex-nowrap gap-4'>
+                <select
+                  id='countries'
+                  value={''}
+                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-mine focus:border-mine block lg:w-full p-2'>
+                  <option selected disabled>
+                    Newly Published
+                  </option>
+                  <option value='alphabetical'>Alphabetical</option>
+                  <option value='members'>Number of Members</option>
+                </select>
+
+                <div className='relative w-full'>
+                  <input
+                    type='text'
+                    id='voice-search'
+                    value={inAppSearch}
+                    className='bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-mine focus:border-mine block w-full ps-2 p-2'
+                    placeholder='Search our course'
+                    onChange={handleTextSearch}
+                  />
+                  <button
+                    type='button'
+                    className='absolute inset-y-0 end-0 flex items-center text-gray-300 mt-1'>
+                    <svg
+                      className='w-4 h-4 me-2'
+                      aria-hidden='true'
+                      xmlns='http://www.w3.org/2000/svg'
+                      fill='none'
+                      viewBox='0 0 20 20'>
+                      <path
+                        stroke='currentColor'
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        stroke-width='2'
+                        d='m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z'
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
 
-            <div className='flex justify-between flex-wrap md:flex-nowrap lg:flex-nowrap gap-4'>
-              <select
-                id='countries'
-                value={''}
-                className='bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-mine focus:border-mine block lg:w-full p-2'>
-                <option selected disabled>
-                  Newly Published
-                </option>
-                <option value='alphabetical'>Alphabetical</option>
-                <option value='members'>Number of Members</option>
-              </select>
-
-              <div className='relative w-full'>
-                <input
-                  type='text'
-                  id='voice-search'
-                  value={inAppSearch}
-                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-mine focus:border-mine block w-full ps-2 p-2'
-                  placeholder='Search our course'
-                  onChange={handleTextSearch}
-                />
-                <button
-                  type='button'
-                  className='absolute inset-y-0 end-0 flex items-center text-gray-300 mt-1'>
-                  <svg
-                    className='w-4 h-4 me-2'
-                    aria-hidden='true'
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 20 20'>
-                    <path
-                      stroke='currentColor'
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                      stroke-width='2'
-                      d='m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z'
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {dataControl.dataOrientation == 'list' ? (
-            currentData.map(
-              (
-                { authur, title, price, image, description, members, amount },
-                ind
-              ) => (
-                <CourseCard
-                  authur={authur}
-                  title={title}
-                  price={price}
-                  image={image}
-                  description={description}
-                  key={ind}
-                  members={members}
-                  amount={amount}
-                />
-              )
-            )
-          ) : (
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-2 p-3 md:p-0 lg:p-0'>
-              {currentData.map(
-                ({ authur, title, price, image, members, amount }, ind) => (
-                  <CoursesCard
+            <div className='h-[170vh] overflow-scroll overflow-x-hidden'>
+            {dataControl.dataOrientation == 'list' ? (
+              currentData.map(
+                (
+                  { authur, title, price, image, description, members, amount },
+                  ind
+                ) => (
+                  <CourseCard
                     authur={authur}
                     title={title}
                     price={price}
                     image={image}
+                    description={description}
                     key={ind}
                     members={members}
-                    classes='md:w-[280px] lg:w-[270px]'
                     amount={amount}
+                    id={title}
                   />
                 )
-              )}
-            </div>
-          )}
-
+              )
+            ) : (
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-2 p-3 md:p-0 lg:p-0'>
+                {currentData.map(
+                  ({ authur, title, price, image, members, amount }, ind) => (
+                    <CoursesCard
+                      authur={authur}
+                      title={title}
+                      price={price}
+                      image={image}
+                      key={ind}
+                      members={members}
+                      classes='md:w-[280px] lg:w-[270px]'
+                      amount={amount}
+                      id={title}
+                    />
+                  )
+                )}
+              </div>
+            )}
+          </div>
           <Pagination
             total={totalPages}
             value={page}
@@ -336,7 +340,7 @@ export default function Courses() {
                   .sort((a: { category: string }, b: { category: string }) =>
                     a.category.localeCompare(b.category)
                   )
-                  .map(({ category, count }) => (
+                  .map(({ category }) => (
                     <div key={category} className='flex justify-between'>
                       <Link
                         className='font-normal capitalize p-1 hover:text-mine'
@@ -347,6 +351,10 @@ export default function Courses() {
                   ))}
               </div>
             </div>
+          </div>
+
+          <div>
+            <LatestCourses />
           </div>
         </div>
       </div>

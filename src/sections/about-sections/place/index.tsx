@@ -26,7 +26,7 @@ const Place = () => {
   return (
     <div>
       <div className=''>
-        <h3 className='font-bold text-[25px] lg:text-[30px] text-center'>
+        <h3 className='font-bold text-[22px] lg:text-[28px] text-center'>
           A Great Place to Grow
         </h3>
       </div>
@@ -50,9 +50,7 @@ const Place = () => {
             backgroundColor: '#FFB606',
           },
         }}
-        classNames={{
-          
-        }}
+        classNames={{}}
         className='w-[99%] h-[35vh] md:h-[40vh] lg:h-[35vh] m-auto'>
         {content.map(({ image }, id) => (
           <Carousel.Slide className='mt-10' key={id}>

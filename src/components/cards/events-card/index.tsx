@@ -42,7 +42,7 @@ const EventsCard = ({
         </div>
         <div className='lg:w-[50%] text-[14px]'>
           <Link href={`/events/${id}`} className='font-bold'>
-            <h3 className='fomt-bold text-[18px] hover:text-mine mb-3 lg:mb-4'>
+            <h3 className='fomt-bold text-[18px] lg:text-[22px] hover:text-mine mb-3 lg:mb-4'>
               {title}
             </h3>
           </Link>

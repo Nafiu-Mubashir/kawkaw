@@ -83,7 +83,7 @@ const LatestNews = () => {
                     height={208}
                     className='group-hover:brightness-50'
                   />
-                  <div className='md:absolute lg:absolute left-0 right-0 md:top-[120px] top-[200px]'>
+                  <div className='absolute right-0 left-0 md:top-[120px] lg:top-[200px]'>
                     <div className='bg-mine w-full md:w-[300px] m-auto lg:w-[200px] h-[42px] md:h-[30px] lg:h-[30px] text-[14px] lg:m-auto text-center '>
                       <p>Hinata Hyuga - 20/08/2022 </p>
                     </div>

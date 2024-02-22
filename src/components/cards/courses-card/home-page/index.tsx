@@ -2,9 +2,11 @@ import { Folder, Minus, Profile2User } from 'iconsax-react';
 import React, { useState } from 'react';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import MoreButton from '~/components/more-button';
 
 interface CardProp {
+  id?: string;
   authur: string;
   classes: string;
   title: string;
@@ -14,6 +16,7 @@ interface CardProp {
   amount: number;
 }
 const CoursesCard = ({
+  id,
   authur,
   title,
   price,
@@ -22,7 +25,7 @@ const CoursesCard = ({
   classes,
   amount,
 }: CardProp) => {
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
   return (
     <div
       className={`relative shadow-md w-full h-[400px] overflow-hidden ${classes}`}>
@@ -46,14 +49,16 @@ const CoursesCard = ({
           height={200}
           src='/instructor.webp'
           alt=''
-          className='rounded-full w-[90px] border bg-white p-1 absolute h-[90px] left-0 m-auto bottom-[-30px] right-0'
+          className='rounded-full w-[50px] border bg-white p-1 absolute h-[50px] left-0 m-auto bottom-[-30px] right-0'
         />
       </div>
       <div className='mb-3 mt-3 p-3 text-center absolute left-0 right-0'>
         <p className='text-gray-400 text-md mb-3 mt-5'>{authur}</p>
-        <h2 className='text-[14px] lg:text-[16px] font-bold cursor-pointer hover:text-mine transform transition duration-600 delay-75 ease-in'>
-          {title}
-        </h2>
+        <Link href={`/courses/${id}`}>
+          <h2 className='text-[14px] lg:text-[16px] font-bold cursor-pointer hover:text-mine transform transition duration-600 delay-75 ease-in'>
+            {title}
+          </h2>
+        </Link>
       </div>
       <div className='p-3 absolute md:w-[90] bottom-0 w-full '>
         <div className='boder border-black w-full relative'>

@@ -28,12 +28,12 @@ const CarouselCards = () => {
     <div className='flex flex-col md:flex-row lg:flex-row gap-4 justify-between w-[95%] lg:w-[75%] m-auto'>
       {content.map(({ icon, title, iconMobile }, id) => (
         <div
-          className='flex justify-betwen m-auto gap-4 bg-black lg:bg-black/60 hover:bg-black cursor-pointer transition duration-1000 ease-in-out transform p-4 lg:h-[150px] w-full lg:w-[400px]'
+          className='flex justify-betwen gap-6 m-auto bg-black lg:bg-black/60 hover:bg-black cursor-pointer transition duration-1000 ease-in-out transform p-4 lg:h-[150px] w-full lg:w-[400px]'
           key={id}>
           <div className='hidden lg:block'>{icon}</div>
           <div className='block lg:hidden'>{iconMobile}</div>
-          <div className=''>
-            <h2 className='text-white lg:text-[22.5px] font-bold lg:mt-4'>
+          <div className='ml-auto'>
+            <h2 className='text-white text-[15px] lg:text-[22.5px] font-bold lg:mt-4'>
               {title}
             </h2>
             <button className='flex gap-3 items-center lg:text-[15px] text-mine lg:mt-5'>

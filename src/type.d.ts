@@ -2,11 +2,13 @@ export interface CoursesCard {
   course: {
     image: string;
     authur: string;
+    authorDetails?: string;
     title: string;
     amount: number;
     category: string;
     price: 'Free' | 'Paid';
-    // discount?: string;
+    discount?: string;
+    overview?: string
     description: string;
     members: number;
   }[]

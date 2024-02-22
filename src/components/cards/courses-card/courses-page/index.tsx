@@ -1,9 +1,11 @@
 import { Folder, Profile2User } from 'iconsax-react';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 interface CardProp {
+  id?: string;
   authur: string;
   title: string;
   price: string | number;
@@ -14,6 +16,7 @@ interface CardProp {
 }
 
 const CourseCard = ({
+  id,
   authur,
   title,
   price,
@@ -32,8 +35,12 @@ const CourseCard = ({
         className='md:w-[200px] lg:w-[200px] h-[250px] md:h-[180px] lg:h-[150px] cursor-pointer transition-transform transform hover:-translate-y-1 hover:scale-110 duration-500 ease-in-out'
       />
       <div>
-        <h1 className='font-bold mb-3'>{title}</h1>
-        <p className='mb-3'>{description}</p>
+        <Link href={`/courses/${id}`}>
+          <h1 className='font-bold mb-3 text-[18px] lg:text-[20px] hover:text-mine cursor-pointer'>
+            {title}
+          </h1>
+        </Link>
+        <p className='mb-3 text-[14px]'>{description}</p>
         <div className='flex justify-between items-center'>
           <div className='flex items-center gap-2'>
             <Image
