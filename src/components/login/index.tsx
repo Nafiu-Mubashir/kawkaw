@@ -33,9 +33,6 @@ export function Login() {
     //   password: yup.string().required('This field is required'),
     // }),
   });
-  const holla = () => {
-    // alert("button")
-  }
 
   const { dirty, handleBlur, errors, touched, handleChange, handleSubmit, values, setSubmitting, isSubmitting } = formik
   return (
@@ -81,9 +78,8 @@ export function Login() {
               </div>
 
               <div>
-                <button type="submit" className="flex w-full justify-center rounded-md bg-hoverMine py-3 px-3 text-sm font-semibold leading-6 text-white shadow-sm bg-mine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hoverMine" onClick={holla}>{isSubmitting ? <Loader color="white" /> : 'Sign in'}</button>
+                <button type="submit" className="flex w-full justify-center rounded-md bg-hoverMine py-3 px-3 text-sm font-semibold leading-6 text-white shadow-sm bg-mine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hoverMine">{isSubmitting ? <Loader color="white" /> : 'Sign in'}</button>
               </div>
-              <button type="submit" onClick={holla}>Holla</button>
             </form>
 
             <p className="mt-10 mb-10 text-center text-sm text-gray-500">
