@@ -42,7 +42,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
             {asPath === '/' && (
               <div
                 style={{
-                  background: `linear-gradient(to bottom, rgba(255, 215, 110, 0.9), rgba(0, 100, 15, 0.3)), url('/footer.webp')`,
+                  background: `linear-gradient(to bottom, rgba(255, 215, 110, 0.9), rgba(0, 0, 0, 0.4)), url('/footer.webp')`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
