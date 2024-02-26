@@ -7,9 +7,11 @@ import { useRouter } from 'next/router';
 export function SinglePageLayout({
   image,
   children,
+  main
 }: {
   image?: string;
   children: React.ReactNode;
+  main?: string
 }) {
   const fallBackImg = '/top-heading-course-new.webp';
   const { asPath, basePath } = useRouter();

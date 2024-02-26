@@ -114,5 +114,9 @@ export default FAQs;
 
 FAQs.getLayout = function (page: React.ReactElement) {
   const event = '/courses/courses-banner.webp';
-  return <SinglePageLayout image={event}>{page}</SinglePageLayout>;
+  return (
+    <SinglePageLayout main='FAQs' image={event}>
+      {page}
+    </SinglePageLayout>
+  );
 };

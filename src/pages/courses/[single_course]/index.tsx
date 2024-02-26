@@ -42,8 +42,8 @@ const SingleCourse = () => {
   );
 
   return (
-    <div className='grid grid-row md:grid-cols-4 lg:grid-cols-4 gap-3 mt-5 w-full md:w-[95%] lg:w-[80%] m-auto p- overflow-hidden p-5'>
-      <div className='col-span-3 md:cols-2'>
+    <div className='flex flex-col md:flex-row lg:flex-row  gap-3 mt-5 w-full md:w-[95%] lg:w-[80%] m-auto p- overflow-hidden p-5'>
+      <div className='w-full md:w-[70%] lg:w-[75%]'>
         <div>
           <h1 className='text-[22px] lg:text-[28px] mb-3 font-bold'>
             {single?.title}
@@ -107,6 +107,7 @@ const SingleCourse = () => {
               classNames={{
                 tab: '!rounded-none focus:border-t-mine focus:border-t-2',
                 tabSection: '',
+                tabLabel: 'hidden md:block block',
               }}>
               <Tabs.List grow justify='space-between'>
                 <Tabs.Tab
@@ -238,7 +239,7 @@ const SingleCourse = () => {
           </div>
         </div>
       </div>
-      <div className='col-span-3 md:col-span-1'>
+      <div className='w-full md:w-[30%] lg:w-[25%] p-2 md:p-0 lg:p-0 text-[15px]'>
         <div className='border-l'>
           <div className='mb-3'>
             <h3 className='border-l-4 border-l-mine font-bold p-2 text-[20px]'>
@@ -268,5 +269,10 @@ export default SingleCourse;
 
 SingleCourse.getLayout = function (page: React.ReactElement) {
   const event = '/single-course.webp';
-  return <SinglePageLayout image={event}>{page}</SinglePageLayout>;
+
+  return (
+    <SinglePageLayout image={event}>
+      {page}
+    </SinglePageLayout>
+  );
 };

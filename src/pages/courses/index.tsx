@@ -1,11 +1,11 @@
 import { Element3, Task } from 'iconsax-react';
+import { Pagination, Select } from '@mantine/core';
 import React, { useMemo, useState } from 'react';
 
 import CourseCard from '~/components/cards/courses-card/courses-page';
 import CoursesCard from '~/components/cards/courses-card/home-page';
 import LatestCourses from './components';
 import Link from 'next/link';
-import { Pagination } from '@mantine/core';
 import { RootState } from '~/lib/store';
 import { SinglePageLayout } from '~/layouts/single-page-layout';
 import debounce from 'lodash/debounce';
@@ -123,80 +123,87 @@ export default function Courses() {
 
   return (
     <div>
-      <div className='grid grid-row md:grid-cols-4 lg:grid-cols-4 gap-3 mt-5 w-full md:w-[95%] lg:w-[80%] m-auto p- overflow-hidden'>
-        <div className='col-span-3 md:cols-2'>
-            <div className='p-2 bg-gray-100 mb-4 flex justify-between items-center'>
-              <div className='flex gap-4 items-center'>
-                <div className='flex gap-2'>
-                  <Element3
-                    size='24'
-                    color={
-                      dataControl.dataOrientation === 'grid' ? 'orange' : 'gray'
-                    }
-                    variant='Bold'
-                    onClick={() => changeDisplay('grid')}
-                    className='hover:cursor-pointer'
-                  />
-                  <Task
-                    size='24'
-                    color={
-                      dataControl.dataOrientation === 'list' ? 'orange' : 'gray'
-                    }
-                    variant='Bold'
-                    onClick={() => changeDisplay('list')}
-                    className='hover:cursor-pointer'
-                  />
-                  {/* <Firstline size="32" color="gray" /> */}
-                </div>
-                <p className='hidden lg:block'>
+      <div className='flex flex-col md:flex-row lg:flex-row gap-3 mt-5 w-full md:w-[95%] lg:w-[80%] m-auto p- overflow-hidden'>
+        <div className='w-full md:w-[70%] lg:w-[75%]'>
+          <div className='p-2 bg-gray-100 mb-4 flex flex-col lg:flex-row gap-3 lg:items-center'>
+            <div className='flex gap-4 justify-between w-full lg:w-[70%] items-center'>
+              <div className='flex gap-2'>
+                <Element3
+                  size='24'
+                  color={
+                    dataControl.dataOrientation === 'grid' ? 'orange' : 'gray'
+                  }
+                  variant='Bold'
+                  onClick={() => changeDisplay('grid')}
+                  className='hover:cursor-pointer'
+                />
+                <Task
+                  size='24'
+                  color={
+                    dataControl.dataOrientation === 'list' ? 'orange' : 'gray'
+                  }
+                  variant='Bold'
+                  onClick={() => changeDisplay('list')}
+                  className='hover:cursor-pointer'
+                />
+                {/* <Firstline size="32" color="gray" /> */}
+                <p className='hidden md:block lg:block text-[15px] text-[#666666]'>
                   Showing 1-12 of {filteredData.length} results
                 </p>
               </div>
-
-              <div className='flex justify-between flex-wrap md:flex-nowrap lg:flex-nowrap gap-4'>
-                <select
-                  id='countries'
-                  value={''}
-                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-mine focus:border-mine block lg:w-full p-2'>
-                  <option selected disabled>
-                    Newly Published
-                  </option>
-                  <option value='alphabetical'>Alphabetical</option>
-                  <option value='members'>Number of Members</option>
-                </select>
-
-                <div className='relative w-full'>
-                  <input
-                    type='text'
-                    id='voice-search'
-                    value={inAppSearch}
-                    className='bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-mine focus:border-mine block w-full ps-2 p-2'
-                    placeholder='Search our course'
-                    onChange={handleTextSearch}
-                  />
-                  <button
-                    type='button'
-                    className='absolute inset-y-0 end-0 flex items-center text-gray-300 mt-1'>
-                    <svg
-                      className='w-4 h-4 me-2'
-                      aria-hidden='true'
-                      xmlns='http://www.w3.org/2000/svg'
-                      fill='none'
-                      viewBox='0 0 20 20'>
-                      <path
-                        stroke='currentColor'
-                        stroke-linecap='round'
-                        stroke-linejoin='round'
-                        stroke-width='2'
-                        d='m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z'
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
+              <Select
+                label=''
+                placeholder='Pick value'
+                data={['Alphabetical', 'Number of Members']}
+                classNames={{
+                  wrapper: 'focus:border-mine',
+                }}
+              />
+              {/* <select
+                id='countries'
+                value={''}
+                className='bg-gray-50 border border-gray-300 text-[#666666] text-sm  focus:ring-mine focus:border-mine block lg:w-ful p-2'>
+                <option selected disabled>
+                  Newly Published
+                </option>
+                <option value='alphabetical'>Alphabetical</option>
+                <option value='members'>Number of Members</option>
+              </select> */}
             </div>
 
-            <div className='h-[170vh] overflow-scroll overflow-x-hidden'>
+            <div className='w-full md:w-[40%] lg:w-[30%]'>
+              <div className='relative w-full'>
+                <input
+                  type='text'
+                  id='voice-search'
+                  value={inAppSearch}
+                  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-mine focus:border-mine block w-full ps-2 p-2'
+                  placeholder='Search our course'
+                  onChange={handleTextSearch}
+                />
+                <button
+                  type='button'
+                  className='absolute inset-y-0 end-0 flex items-center text-gray-300 mt-1'>
+                  <svg
+                    className='w-4 h-4 me-2'
+                    aria-hidden='true'
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 20 20'>
+                    <path
+                      stroke='currentColor'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z'
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className='h-[170vh] overflow-scroll overflow-x-hidden'>
             {dataControl.dataOrientation == 'list' ? (
               currentData.map(
                 (
@@ -241,14 +248,14 @@ export default function Courses() {
             value={page}
             onChange={handlePageChange}
             color='#FFB606'
-            className='mt-5 w-[50%] md:w-[30%] lg:w-[20%] m-auto mb-4 sticky'
+            className='mt-5 w-[50%] md:w-[40%] lg:w-[20%] m-auto mb-4 sticky'
           />
         </div>
 
-        <div className='col-span-3 md:col-span-1 lg:col-span-1 p-3 w-full'>
+        <div className='w-full md:w-[30%] lg:w-[25%] p-3 md:p-0 lg:p-0 text-[15px]'>
           <div className='border p-3 mb-3'>
             <div className='mb-3'>
-              <h3 className='p-2 font-bold mb-3 after:block after:h-[3px] after:w-[30px] after:bg-mine'>
+              <h3 className='font-bold mb-3 after:block after:h-[3px] after:w-[30px] after:bg-mine'>
                 Categories
               </h3>
               <label>
@@ -277,7 +284,7 @@ export default function Courses() {
             </div>
 
             <div className='mb-3'>
-              <h3 className='p-2 font-bold mb-3 after:block after:h-[3px] after:w-[30px] after:bg-mine'>
+              <h3 className='font-bold mb-3 after:block after:h-[3px] after:w-[30px] after:bg-mine'>
                 Author
               </h3>
               <label>
@@ -300,7 +307,7 @@ export default function Courses() {
             </div>
 
             <div className='mb-3'>
-              <h3 className='p-2 font-bold mb-3 after:block after:h-[3px] after:w-[30px] after:bg-mine'>
+              <h3 className='font-bold mb-3 after:block after:h-[3px] after:w-[30px] after:bg-mine'>
                 Price
               </h3>
               <label>
