@@ -29,7 +29,7 @@ const Feedbacks = () => {
             <input
               type='search'
               id=''
-              className='block m-auto lg:m-0 h-[50px] p-2.5 w-[80%] lg:w-[70%] border z-20 text-sm text-gray-900 border-gray-200 outline-none focus:ring-mine focus:border-mine'
+              className='block m-auto lg:m-0 h-[50px] p-2.5 w-[80%] lg:w-[70%] border z-0 text-sm text-gray-900 border-gray-200 outline-none focus:ring-mine focus:border-mine'
               placeholder='Your email here'
               required
             />

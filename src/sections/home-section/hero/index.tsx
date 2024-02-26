@@ -18,7 +18,11 @@ const HeroSection = () => {
         height={'100%'}
         loop
         plugins={[autoplay.current]}
-        className='w-ful h-screen mb-4'>
+        className='w-ful h-screen mb-4'
+        classNames={{
+          control:
+            'h-[50px] w-[50px] !bg-transparent hover:!bg-black !border-transparent',
+        }}>
         <Carousel.Slide>
           <div
             style={{
